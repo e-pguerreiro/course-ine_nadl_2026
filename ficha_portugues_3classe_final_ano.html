@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ficha de Avaliação de Português – 3.º Ano</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', Arial, sans-serif;
+      font-size: 13pt;
+      color: #1a1a2e;
+      background: #f4f6fb;
+      padding: 0;
+    }
+
+    .page {
+      background: #fff;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      padding: 18mm 18mm 18mm 18mm;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+      page-break-after: always;
+    }
+
+    /* ───── CABEÇALHO ───── */
+    .header {
+      border: 3px solid #3a5fc8;
+      border-radius: 12px;
+      padding: 10px 14px 8px 14px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #eef2ff 0%, #f8f9ff 100%);
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .school-icon {
+      font-size: 36px;
+    }
+    .school-info h1 {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #3a5fc8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .school-info h2 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #e85d04;
+      margin-top: 2px;
+    }
+    .school-info p {
+      font-size: 10pt;
+      color: #555;
+      margin-top: 1px;
+    }
+    .header-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .field-line {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10.5pt;
+    }
+    .field-line span.label {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .field-line .line {
+      flex: 1;
+      border-bottom: 1.5px solid #3a5fc8;
+      min-width: 60px;
+      height: 16px;
+    }
+
+    /* ───── COTAÇÃO TOTAL ───── */
+    .total-box {
+      float: right;
+      border: 2.5px solid #e85d04;
+      border-radius: 10px;
+      padding: 6px 14px;
+      text-align: center;
+      background: #fff9f5;
+      margin-left: 12px;
+    }
+    .total-box .total-label { font-size: 9pt; color: #888; font-weight: 700; text-transform: uppercase; }
+    .total-box .total-val   { font-size: 18pt; font-weight: 800; color: #e85d04; line-height: 1.1; }
+    .total-box .total-pts   { font-size: 9pt; color: #888; }
+
+    /* ───── INSTRUÇÕES ───── */
+    .instructions {
+      font-size: 10pt;
+      color: #555;
+      font-style: italic;
+      background: #fffbea;
+      border-left: 4px solid #f4c430;
+      padding: 6px 10px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 16px;
+    }
+
+    /* ───── GRUPOS ───── */
+    .group {
+      margin-bottom: 20px;
+    }
+    .group-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #3a5fc8;
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+      padding: 7px 14px;
+      font-size: 12pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .group-title .pts-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 10pt;
+      font-weight: 700;
+    }
+    .group-body {
+      border: 2px solid #3a5fc8;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 14px 16px;
+    }
+
+    /* ───── TEXTO LITERÁRIO ───── */
+    .literary-text {
+      background: #f0f4ff;
+      border-left: 5px solid #3a5fc8;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      font-size: 12pt;
+      line-height: 1.8;
+    }
+    .literary-text .poem-title {
+      font-weight: 800;
+      font-size: 13pt;
+      color: #3a5fc8;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .literary-text .poem-author {
+      text-align: right;
+      font-style: italic;
+      font-size: 10.5pt;
+      color: #666;
+      margin-top: 8px;
+    }
+    .literary-text .poem-stanza {
+      margin-bottom: 8px;
+    }
+    .line-number {
+      display: inline-block;
+      width: 22px;
+      color: #aaa;
+      font-size: 9.5pt;
+      text-align: right;
+      margin-right: 6px;
+      user-select: none;
+    }
+
+    /* ───── PERGUNTAS ───── */
+    .question {
+      margin-bottom: 12px;
+    }
+    .question-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+    .q-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: #e85d04;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11pt;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .q-pts {
+      font-size: 9pt;
+      color: #888;
+      font-style: italic;
+      white-space: nowrap;
+    }
+    .q-text {
+      font-size: 12pt;
+      line-height: 1.5;
+    }
+    .sub-question {
+      margin: 6px 0 6px 34px;
+      font-size: 11.5pt;
+      line-height: 1.5;
+    }
+    .sub-question::before {
+      content: attr(data-label) ") ";
+      font-weight: 700;
+      color: #3a5fc8;
+    }
+
+    /* ───── LINHAS DE RESPOSTA ───── */
+    .answer-lines {
+      margin: 6px 0 4px 34px;
+    }
+    .answer-line {
+      border-bottom: 1.5px solid #c0c8e0;
+      height: 22px;
+      margin-bottom: 4px;
+      width: 100%;
+    }
+
+    /* ───── ESCOLHA MÚLTIPLA ───── */
+    .mc-options {
+      margin: 6px 0 4px 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 16px;
+    }
+    .mc-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5pt;
+    }
+    .mc-circle {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #3a5fc8;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ───── VERDADEIRO / FALSO ───── */
+    .vf-table {
+      margin: 8px 0 4px 34px;
+      width: calc(100% - 34px);
+      border-collapse: collapse;
+      font-size: 11.5pt;
+    }
+    .vf-table th {
+      background: #3a5fc8;
+      color: #fff;
+      padding: 5px 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .vf-table td {
+      border: 1.5px solid #c0c8e0;
+      padding: 5px 10px;
+    }
+    .vf-table td.check-cell {
+      text-align: center;
+      width: 52px;
+    }
+
+    /* ───── LACUNAS / COMPLETAR ───── */
+    .gap {
+      display: inline-block;
+      border-bottom: 1.5px solid #3a5fc8;
+      min-width: 80px;
+      height: 18px;
+      vertical-align: bottom;
+      margin: 0 3px;
+    }
+    .gap-long {
+      min-width: 140px;
+    }
+    .gap-short {
+      min-width: 50px;
+    }
+
+    /* ───── CAIXA DE PALAVRAS ───── */
+    .word-box {
+      background: #f0f4ff;
+      border: 2px dashed #3a5fc8;
+      border-radius: 8px;
+      padding: 8px 14px;
+      margin: 8px 0 8px 34px;
+      font-size: 11pt;
+      line-height: 1.8;
+      text-align: center;
+    }
+    .word-box strong {
+      color: #e85d04;
+      margin: 0 6px;
+    }
+
+    /* ───── TABELAS GRAMATICAIS ───── */
+    .gram-table {
+      margin: 8px 0 4px 34px;
+      width: calc(100% - 34px);
+      border-collapse: collapse;
+      font-size: 11pt;
+    }
+    .gram-table th {
+      background: #3a5fc8;
+      color: #fff;
+      padding: 5px 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .gram-table td {
+      border: 1.5px solid #c0c8e0;
+      padding: 6px 10px;
+      min-height: 28px;
+    }
+    .gram-table td.fill {
+      background: #f8f9ff;
+    }
+
+    /* ───── DIVISÃO SILÁBICA ───── */
+    .syllable-box {
+      display: inline-flex;
+      gap: 0;
+      margin: 0 4px;
+    }
+    .syl {
+      border: 1.5px solid #3a5fc8;
+      padding: 2px 8px;
+      font-weight: 700;
+      color: #3a5fc8;
+      border-radius: 4px;
+      margin: 0 2px;
+    }
+
+    /* ───── PRODUÇÃO ESCRITA ───── */
+    .writing-prompt {
+      background: #fff9f5;
+      border: 2px solid #e85d04;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      font-size: 11.5pt;
+      line-height: 1.6;
+    }
+    .writing-prompt .prompt-title {
+      font-weight: 800;
+      color: #e85d04;
+      margin-bottom: 6px;
+    }
+    .writing-checklist {
+      margin: 8px 0 8px 34px;
+      font-size: 10.5pt;
+      color: #555;
+    }
+    .writing-checklist li {
+      margin-bottom: 3px;
+      list-style: none;
+    }
+    .writing-checklist li::before {
+      content: "☐ ";
+      color: #3a5fc8;
+      font-size: 12pt;
+    }
+
+    /* ───── RODAPÉ ───── */
+    .footer {
+      margin-top: 18px;
+      border-top: 2px solid #e0e4f0;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      color: #999;
+    }
+    .footer .signature-area {
+      text-align: center;
+    }
+    .footer .signature-line {
+      border-bottom: 1.5px solid #c0c8e0;
+      width: 120px;
+      margin: 0 auto 3px auto;
+    }
+
+    /* ───── SEPARADOR DE GRUPOS ───── */
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, #3a5fc8, #e85d04, #3a5fc8);
+      border-radius: 2px;
+      margin: 8px 0;
+      opacity: 0.3;
+    }
+
+    /* ───── NOTA / ENUNCIADO ───── */
+    .note {
+      font-size: 10pt;
+      color: #666;
+      font-style: italic;
+      margin: 4px 0 4px 34px;
+    }
+
+    /* ───── PRINT ───── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ PÁGINA 1 ══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- CABEÇALHO -->
+  <div class="header">
+    <div class="header-top">
+      <div class="school-icon">📚</div>
+      <div class="school-info" style="flex:1">
+        <h1>Ficha de Avaliação Sumativa – Final de Ano</h1>
+        <h2>Português &nbsp;|&nbsp; 3.º Ano do 1.º Ciclo do Ensino Básico</h2>
+        <p>Ano Letivo 2025 / 2026 &nbsp;·&nbsp; Baseada no manual <em>Zupi 3</em></p>
+      </div>
+      <div class="total-box">
+        <div class="total-label">Cotação</div>
+        <div class="total-val">100</div>
+        <div class="total-pts">pontos</div>
+      </div>
+    </div>
+    <div class="header-fields">
+      <div class="field-line"><span class="label">Nome:</span><div class="line"></div></div>
+      <div class="field-line"><span class="label">Turma:</span><div class="line"></div></div>
+      <div class="field-line"><span class="label">Data:</span><div class="line"></div></div>
+      <div class="field-line" style="grid-column: 1 / 3"><span class="label">Professor(a):</span><div class="line"></div></div>
+      <div class="field-line"><span class="label">Classificação:</span><div class="line"></div></div>
+    </div>
+  </div>
+
+  <!-- INSTRUÇÕES -->
+  <div class="instructions">
+    ✏️ &nbsp;Lê com atenção todas as perguntas antes de responderes. Escreve com letra legível. Não é permitido o uso de corretor.
+  </div>
+
+  <!-- ════════════════════ GRUPO I – LEITURA E COMPREENSÃO ════════════════════ -->
+  <div class="group">
+    <div class="group-title">
+      <span>Grupo I</span>
+      <span style="font-weight:400; font-size:11pt; text-transform:none">— Leitura e Compreensão do Texto</span>
+      <span class="pts-badge">40 pontos</span>
+    </div>
+    <div class="group-body">
+
+      <!-- TEXTO -->
+      <div class="literary-text">
+        <div class="poem-title">A Primavera Chegou!</div>
+        <div class="poem-stanza">
+          <span class="line-number">1</span>A primavera chegou,<br>
+          <span class="line-number">2</span>pintou o campo de cores,<br>
+          <span class="line-number">3</span>os pássaros cantaram,<br>
+          <span class="line-number">4</span>encheu o ar de flores.
+        </div>
+        <div class="poem-stanza">
+          <span class="line-number">5</span>O sol dourado e quente<br>
+          <span class="line-number">6</span>aqueceu a terra fria,<br>
+          <span class="line-number">7</span>a borboleta feliz<br>
+          <span class="line-number">8</span>voou de alegria.
+        </div>
+        <div class="poem-stanza">
+          <span class="line-number">9</span>As crianças brincaram,<br>
+          <span class="line-number">10</span>correram pelo jardim,<br>
+          <span class="line-number">11</span>o verão está perto,<br>
+          <span class="line-number">12</span>as férias têm fim!
+        </div>
+        <div class="poem-author">— Poema adaptado</div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">1</span>
+          <span class="q-text">Qual é o título do poema?</span>
+          <span class="q-pts">(4 pts)</span>
+        </div>
+        <div class="answer-lines">
+          <div class="answer-line"></div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">2</span>
+          <span class="q-text">Rodeia a opção correta.</span>
+          <span class="q-pts">(4 pts)</span>
+        </div>
+        <p class="sub-question" data-label="a">O poema fala sobre a estação do ano chamada:</p>
+        <div class="mc-options">
+          <div class="mc-option"><div class="mc-circle"></div> Inverno</div>
+          <div class="mc-option"><div class="mc-circle"></div> Primavera</div>
+          <div class="mc-option"><div class="mc-circle"></div> Outono</div>
+          <div class="mc-option"><div class="mc-circle"></div> Verão</div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">3</span>
+          <span class="q-text">Indica se as afirmações são Verdadeiras (V) ou Falsas (F).</span>
+          <span class="q-pts">(8 pts)</span>
+        </div>
+        <table class="vf-table">
+          <tr>
+            <th style="text-align:left; width:auto">Afirmação</th>
+            <th>V</th>
+            <th>F</th>
+          </tr>
+          <tr>
+            <td>O sol é descrito como dourado e quente.</td>
+            <td class="check-cell"></td>
+            <td class="check-cell"></td>
+          </tr>
+          <tr>
+            <td>As crianças brincaram na praia.</td>
+            <td class="check-cell"></td>
+            <td class="check-cell"></td>
+          </tr>
+          <tr>
+            <td>A borboleta voou de alegria.</td>
+            <td class="check-cell"></td>
+            <td class="check-cell"></td>
+          </tr>
+          <tr>
+            <td>O poema tem três estrofes.</td>
+            <td class="check-cell"></td>
+            <td class="check-cell"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">4</span>
+          <span class="q-text">Responde às perguntas sobre o poema.</span>
+          <span class="q-pts">(12 pts)</span>
+        </div>
+        <p class="sub-question" data-label="a">Quantos versos tem cada estrofe?</p>
+        <div class="answer-lines">
+          <div class="answer-line"></div>
+        </div>
+        <p class="sub-question" data-label="b">Encontra no poema duas palavras que rimam com <strong>cores</strong>.</p>
+        <div class="answer-lines">
+          <div class="answer-line"></div>
+        </div>
+        <p class="sub-question" data-label="c">O que pintou o campo de cores? (responde com uma frase completa)</p>
+        <div class="answer-lines">
+          <div class="answer-line"></div>
+          <div class="answer-line"></div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">5</span>
+          <span class="q-text">Copia do poema um verso que te agradou mais e explica porquê.</span>
+          <span class="q-pts">(12 pts)</span>
+        </div>
+        <div class="answer-lines">
+          <div class="answer-line"></div>
+          <div class="answer-line"></div>
+          <div class="answer-line"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ PÁGINA 2 ══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- ════════════════════ GRUPO II – GRAMÁTICA ════════════════════ -->
+  <div class="group">
+    <div class="group-title">
+      <span>Grupo II</span>
+      <span style="font-weight:400; font-size:11pt; text-transform:none">— Gramática (Conhecimento Explícito da Língua)</span>
+      <span class="pts-badge">40 pontos</span>
+    </div>
+    <div class="group-body">
+
+      <!-- Q6 – Classes de palavras -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">6</span>
+          <span class="q-text">Classifica as palavras sublinhadas na frase. Escreve <strong>N</strong> (nome), <strong>V</strong> (verbo), <strong>Adj</strong> (adjetivo) ou <strong>Det</strong> (determinante artigo).</span>
+          <span class="q-pts">(8 pts)</span>
+        </div>
+        <p class="note" style="margin-left:0; margin-top:4px; margin-bottom:8px; font-style:normal; font-size:12pt">
+          "<u>A</u> <u>borboleta</u> <u>colorida</u> <u>voou</u> pelo jardim."
+        </p>
+        <table class="gram-table">
+          <tr>
+            <th>Palavra</th>
+            <th>Classe</th>
+            <th>Palavra</th>
+            <th>Classe</th>
+          </tr>
+          <tr>
+            <td><strong>A</strong></td>
+            <td class="fill"></td>
+            <td><strong>colorida</strong></td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td><strong>borboleta</strong></td>
+            <td class="fill"></td>
+            <td><strong>voou</strong></td>
+            <td class="fill"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q7 – Género e número -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">7</span>
+          <span class="q-text">Completa a tabela com o feminino/masculino e o plural das palavras.</span>
+          <span class="q-pts">(8 pts)</span>
+        </div>
+        <table class="gram-table">
+          <tr>
+            <th>Masculino</th>
+            <th>Feminino</th>
+            <th>Plural do masculino</th>
+          </tr>
+          <tr>
+            <td><strong>menino</strong></td>
+            <td class="fill"></td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td><strong>pássaro</strong></td>
+            <td class="fill"></td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td class="fill"></td>
+            <td><strong>professora</strong></td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td class="fill"></td>
+            <td><strong>leoa</strong></td>
+            <td class="fill"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q8 – Conjugação verbal -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">8</span>
+          <span class="q-text">Conjuga o verbo <strong>BRINCAR</strong> no Pretérito Perfeito do Indicativo (passado).</span>
+          <span class="q-pts">(6 pts)</span>
+        </div>
+        <table class="gram-table">
+          <tr>
+            <th>Pessoa</th>
+            <th>Verbo conjugado</th>
+            <th>Pessoa</th>
+            <th>Verbo conjugado</th>
+          </tr>
+          <tr>
+            <td>Eu</td><td class="fill"></td>
+            <td>Nós</td><td class="fill"></td>
+          </tr>
+          <tr>
+            <td>Tu</td><td class="fill"></td>
+            <td>Vós</td><td class="fill"></td>
+          </tr>
+          <tr>
+            <td>Ele / Ela</td><td class="fill"></td>
+            <td>Eles / Elas</td><td class="fill"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q9 – Tipos de frase -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">9</span>
+          <span class="q-text">Classifica cada frase quanto ao tipo. Escolhe: <em>declarativa · interrogativa · exclamativa · imperativa</em>.</span>
+          <span class="q-pts">(8 pts)</span>
+        </div>
+        <table class="gram-table">
+          <tr>
+            <th>Frase</th>
+            <th>Tipo</th>
+          </tr>
+          <tr>
+            <td>O jardim está muito bonito!</td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td>Os alunos estudam muito.</td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td>Abre o livro na página 30.</td>
+            <td class="fill"></td>
+          </tr>
+          <tr>
+            <td>Quando é que chegaste?</td>
+            <td class="fill"></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q10 – Divisão silábica e translineação -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">10</span>
+          <span class="q-text">Divide as palavras em sílabas, usando traço (–). Indica também a sílaba tónica (sublinha-a).</span>
+          <span class="q-pts">(6 pts)</span>
+        </div>
+        <div class="note">Exemplo: <em>ca–sa</em> &nbsp;→&nbsp; sílaba tónica: <u>ca</u></div>
+        <table class="gram-table" style="margin-top:8px">
+          <tr>
+            <th>Palavra</th>
+            <th>Divisão silábica</th>
+            <th>N.º de sílabas</th>
+          </tr>
+          <tr><td><strong>borboleta</strong></td><td class="fill"></td><td class="fill"></td></tr>
+          <tr><td><strong>primavera</strong></td><td class="fill"></td><td class="fill"></td></tr>
+          <tr><td><strong>jardim</strong></td><td class="fill"></td><td class="fill"></td></tr>
+        </table>
+      </div>
+
+      <!-- Q11 – Sinais de pontuação -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">11</span>
+          <span class="q-text">Coloca os sinais de pontuação correctos nas frases (<strong>. , ? ! :</strong>).</span>
+          <span class="q-pts">(4 pts)</span>
+        </div>
+        <div class="answer-lines" style="margin-left:0">
+          <p style="font-size:12pt; margin-bottom:8px">a)&ensp; Que dia bonito <span class="gap gap-short"></span></p>
+          <p style="font-size:12pt; margin-bottom:8px">b)&ensp; Onde está o meu livro <span class="gap gap-short"></span></p>
+          <p style="font-size:12pt; margin-bottom:8px">c)&ensp; O João disse <span class="gap gap-short"></span> amanhã não venho à escola<span class="gap gap-short"></span></p>
+          <p style="font-size:12pt; margin-bottom:8px">d)&ensp; Fui ao supermercado comprar pão <span class="gap gap-short"></span> leite e fruta<span class="gap gap-short"></span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════ PÁGINA 3 ══════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- ════════════════════ GRUPO III – ESCRITA ════════════════════ -->
+  <div class="group">
+    <div class="group-title">
+      <span>Grupo III</span>
+      <span style="font-weight:400; font-size:11pt; text-transform:none">— Expressão Escrita</span>
+      <span class="pts-badge">20 pontos</span>
+    </div>
+    <div class="group-body">
+
+      <!-- Q12 – Ordenar frases -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">12</span>
+          <span class="q-text">Ordena as frases para formares um texto com sentido. Numera de 1 a 4.</span>
+          <span class="q-pts">(6 pts)</span>
+        </div>
+        <table class="gram-table" style="margin-left:0; width:100%">
+          <tr>
+            <th style="width:50px">Ordem</th>
+            <th>Frase</th>
+          </tr>
+          <tr>
+            <td class="fill" style="text-align:center"></td>
+            <td>Depois jogámos à bola e comemos um gelado.</td>
+          </tr>
+          <tr>
+            <td class="fill" style="text-align:center"></td>
+            <td>No fim do dia, regressámos a casa cansados mas felizes.</td>
+          </tr>
+          <tr>
+            <td class="fill" style="text-align:center"></td>
+            <td>No sábado, a minha família foi ao parque.</td>
+          </tr>
+          <tr>
+            <td class="fill" style="text-align:center"></td>
+            <td>Chegámos cedo e estendemos a toalha na erva.</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Q13 – Produção textual -->
+      <div class="question">
+        <div class="question-header">
+          <span class="q-num">13</span>
+          <span class="q-text">Escreve um texto sobre o tema proposto. Respeita os critérios da lista de verificação.</span>
+          <span class="q-pts">(14 pts)</span>
+        </div>
+
+        <div class="writing-prompt">
+          <div class="prompt-title">✍️ Tema: «As minhas férias de verão – o que gostava de fazer»</div>
+          Imagina que as férias de verão chegaram! Escreve um pequeno texto (6 a 10 linhas) a contar o que gostarias de fazer durante as férias. Podes falar de lugares, pessoas, jogos, viagens ou o que mais gostares.
+        </div>
+
+        <p class="note" style="margin-left:0; font-style:normal; font-size:10.5pt; color:#888; margin-bottom:6px">
+          ☑ Lista de verificação do texto:
+        </p>
+        <ul class="writing-checklist">
+          <li>O texto tem título.</li>
+          <li>O texto tem pelo menos três parágrafos (introdução, desenvolvimento e conclusão).</li>
+          <li>Usei letras maiúsculas no início das frases e nos nomes próprios.</li>
+          <li>Usei os sinais de pontuação correctamente.</li>
+          <li>As frases fazem sentido e estão ligadas entre si.</li>
+          <li>Reli e corrigi o meu texto.</li>
+        </ul>
+
+        <!-- Linhas de escrita -->
+        <div style="margin-top: 10px;">
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+          <div class="answer-line" style="border-bottom: 1.5px solid #c0c8e0; height:26px; margin-bottom:5px; width:100%"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════════════════ GRELHA DE CLASSIFICAÇÃO ════════════════════ -->
+  <div class="group" style="margin-top:18px">
+    <div class="group-title" style="background: #4a4e69">
+      <span>Grelha de Classificação</span>
+      <span style="font-weight:400; font-size:10pt; text-transform:none">— Para uso exclusivo do(a) professor(a)</span>
+    </div>
+    <div class="group-body" style="border-color:#4a4e69">
+      <table class="gram-table" style="margin-left:0; width:100%">
+        <tr>
+          <th style="background:#4a4e69">Grupo</th>
+          <th style="background:#4a4e69">Cotação máxima</th>
+          <th style="background:#4a4e69">Cotação obtida</th>
+          <th style="background:#4a4e69">Observações</th>
+        </tr>
+        <tr>
+          <td>Grupo I – Leitura e Compreensão</td>
+          <td style="text-align:center">40</td>
+          <td class="fill"></td>
+          <td class="fill"></td>
+        </tr>
+        <tr>
+          <td>Grupo II – Gramática (CEL)</td>
+          <td style="text-align:center">40</td>
+          <td class="fill"></td>
+          <td class="fill"></td>
+        </tr>
+        <tr>
+          <td>Grupo III – Expressão Escrita</td>
+          <td style="text-align:center">20</td>
+          <td class="fill"></td>
+          <td class="fill"></td>
+        </tr>
+        <tr style="font-weight:800">
+          <td>TOTAL</td>
+          <td style="text-align:center">100</td>
+          <td class="fill"></td>
+          <td class="fill"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="footer">
+    <div>Ficha de Avaliação Sumativa · Português · 3.º Ano · Ano letivo 2025/2026</div>
+    <div class="signature-area">
+      <div class="signature-line"></div>
+      <div>Assinatura do(a) Encarregado(a) de Educação</div>
+    </div>
+    <div>Cotação total: 100 pontos</div>
+  </div>
+
+</div>
+
+</body>
+</html>
