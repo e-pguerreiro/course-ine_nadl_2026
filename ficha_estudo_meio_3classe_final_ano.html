@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<title>Ficha de Avaliação – Estudo do Meio – 3.º Ano</title>
+<style>
+@page { size: A4; margin: 16mm 15mm 14mm 15mm; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  color: #111;
+  margin: 0; padding: 0;
+}
+
+/* ── CABEÇALHO ── */
+.hdr {
+  border: 2.5px solid #2e7d32;
+  border-radius: 8px;
+  padding: 9px 13px 7px;
+  margin-bottom: 12px;
+  background: #f1f8e9;
+}
+.hdr-row { display: flex; align-items: center; margin-bottom: 7px; }
+.hdr-titles { flex: 1; }
+.hdr-titles h1 { font-size: 12.5pt; font-weight: bold; color: #2e7d32; text-transform: uppercase; margin: 0 0 2px; }
+.hdr-titles h2 { font-size: 11pt; font-weight: bold; color: #e65100; margin: 0; }
+.hdr-titles p  { font-size: 9.5pt; color: #555; margin: 2px 0 0; }
+.pts-box {
+  border: 2.5px solid #e65100; border-radius: 7px;
+  padding: 5px 11px; text-align: center; background: #fff; margin-left: 10px;
+}
+.pts-box .big { font-size: 20pt; font-weight: bold; color: #e65100; line-height: 1; }
+.pts-box .lbl { font-size: 8.5pt; color: #888; }
+
+.fields { width: 100%; border-collapse: collapse; }
+.fields td { padding: 2px 5px 2px 0; vertical-align: bottom; font-size: 10pt; }
+.fields td.lbl { font-weight: bold; white-space: nowrap; padding-right: 4px; }
+.uline { border-bottom: 1.5px solid #2e7d32; display: block; min-height: 14px; }
+
+.instrucoes {
+  font-size: 9.5pt; color: #555; font-style: italic;
+  background: #fffbe6; border-left: 4px solid #f4c430;
+  padding: 5px 10px; margin-bottom: 12px;
+}
+
+/* ── GRUPO ── */
+.grupo { margin-bottom: 14px; }
+.grupo-titulo {
+  border-radius: 6px 6px 0 0;
+  padding: 6px 13px;
+  font-size: 11pt; font-weight: bold;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.g1 { background: #c62828; }
+.g2 { background: #2e7d32; }
+.g3 { background: #1565c0; }
+.gcont { background: #37474f; }
+.grupo-titulo, .grupo-titulo * { color: #fff; }
+.pts-badge {
+  background: rgba(255,255,255,0.22);
+  border-radius: 20px; padding: 1px 10px;
+  font-size: 9.5pt; font-weight: bold;
+}
+.grupo-corpo {
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  padding: 11px 13px;
+}
+.bc1 { border: 2px solid #c62828; }
+.bc2 { border: 2px solid #2e7d32; }
+.bc3 { border: 2px solid #1565c0; }
+.bcc { border: 2px solid #37474f; }
+
+/* ── PERGUNTAS ── */
+.q { margin-bottom: 12px; }
+.q-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.q-num {
+  display: inline-block; width: 23px; height: 23px;
+  border-radius: 50%; text-align: center;
+  line-height: 23px; font-weight: bold; font-size: 10pt; flex-shrink: 0; color: #fff;
+}
+.n1 { background: #c62828; }
+.n2 { background: #2e7d32; }
+.n3 { background: #1565c0; }
+.q-txt { font-size: 11.5pt; flex: 1; padding-top: 1px; }
+.q-pts { font-size: 9pt; color: #999; font-style: italic; white-space: nowrap; padding-top: 3px; }
+
+.sub { margin: 5px 0 5px 31px; font-size: 11pt; }
+.sub::before { content: attr(data-l) ") "; font-weight: bold; color: #2e7d32; }
+
+/* ── RESPOSTA ── */
+.alines { margin: 5px 0 3px 31px; }
+.al { border-bottom: 1.5px solid #ccd3e8; height: 21px; margin-bottom: 4px; }
+
+/* ── V/F ── */
+.vf { margin: 7px 0 4px 31px; width: calc(100% - 31px); border-collapse: collapse; font-size: 11pt; }
+.vf th { padding: 4px 8px; color: #fff; }
+.vf th:first-child { text-align: left; }
+.vf td { border: 1.5px solid #ccd3e8; padding: 5px 8px; }
+.vf td.c { text-align: center; width: 44px; }
+.th1 { background: #c62828; }
+.th2 { background: #2e7d32; }
+.th3 { background: #1565c0; }
+
+/* ── TABELAS ── */
+.gtab { margin: 6px 0 4px 31px; width: calc(100% - 31px); border-collapse: collapse; font-size: 11pt; }
+.gtab th { padding: 4px 8px; text-align: center; color: #fff; }
+.gtab td { border: 1.5px solid #ccd3e8; padding: 5px 8px; }
+.gtab td.f { background: #f8fbf8; min-width: 70px; }
+
+/* ── OPÇÃO MÚLTIPLA ── */
+.mc { margin: 6px 0 4px 31px; border-collapse: collapse; }
+.mc td { padding: 3px 16px 3px 0; font-size: 11pt; vertical-align: middle; }
+.circle { display: inline-block; width: 15px; height: 15px; border: 2px solid #2e7d32; border-radius: 50%; vertical-align: middle; margin-right: 5px; }
+
+/* ── CAIXA DE PALAVRAS ── */
+.wbox {
+  border: 2px dashed #2e7d32; border-radius: 6px;
+  padding: 6px 12px; margin: 7px 0 7px 31px;
+  font-size: 11pt; text-align: center; background: #f1f8e9;
+}
+.wbox b { color: #e65100; margin: 0 6px; }
+
+/* ── GAP ── */
+.gap { display: inline-block; border-bottom: 1.5px solid #2e7d32; min-width: 75px; height: 15px; vertical-align: bottom; margin: 0 3px; }
+.gap-s { min-width: 45px; }
+.gap-l { min-width: 130px; }
+
+/* ── CAIXINHAS DE CLASSIFICAÇÃO ── */
+.class-row { margin: 6px 0 4px 31px; }
+.class-box {
+  display: inline-block; border: 1.5px solid #2e7d32;
+  border-radius: 5px; padding: 4px 10px; margin: 3px 4px;
+  font-size: 11pt; background: #f1f8e9;
+}
+
+/* ── CADEIA ALIMENTAR (texto com setas) ── */
+.chain {
+  margin: 6px 0 4px 31px; font-size: 12pt;
+  background: #f1f8e9; border: 1.5px solid #2e7d32;
+  border-radius: 6px; padding: 8px 12px;
+  text-align: center; line-height: 2;
+}
+.arrow { color: #2e7d32; font-weight: bold; font-size: 14pt; margin: 0 6px; }
+.fill-chain { display: inline-block; border-bottom: 2px solid #2e7d32; min-width: 90px; height: 18px; vertical-align: bottom; margin: 0 4px; }
+
+/* ── EXERCÍCIO DE ORDENAÇÃO ── */
+.order-table { margin: 6px 0 4px 31px; width: calc(100% - 31px); border-collapse: collapse; font-size: 11pt; }
+.order-table th { background: #2e7d32; color: #fff; padding: 4px 8px; text-align: center; }
+.order-table td { border: 1.5px solid #ccd3e8; padding: 6px 8px; }
+.order-table td.num { text-align: center; width: 44px; background: #f8fbf8; }
+
+/* ── MATCHING ── */
+.match-table { margin: 6px 0 4px 31px; border-collapse: collapse; width: calc(100% - 31px); font-size: 11pt; }
+.match-table td { padding: 5px 10px; vertical-align: top; width: 48%; }
+.match-table td.col-a { border: 1.5px solid #c62828; border-radius: 5px 0 0 5px; background: #fff8f8; }
+.match-table td.col-b { border: 1.5px solid #2e7d32; border-radius: 0 5px 5px 0; background: #f8fbf8; }
+.match-item { padding: 5px 8px; margin: 4px 0; border: 1.5px solid #ddd; border-radius: 4px; background: #fff; font-size: 11pt; }
+.match-num { display: inline-block; width: 20px; height: 20px; background: #c62828; color: #fff; border-radius: 50%; text-align: center; line-height: 20px; font-size: 9.5pt; font-weight: bold; margin-right: 6px; }
+.match-letter { display: inline-block; width: 20px; height: 20px; background: #2e7d32; color: #fff; border-radius: 50%; text-align: center; line-height: 20px; font-size: 9.5pt; font-weight: bold; margin-right: 6px; }
+.match-ans { margin: 6px 0 4px 31px; font-size: 10.5pt; }
+
+/* ── NOTA ── */
+.note { font-size: 10pt; color: #555; font-style: italic; margin: 3px 0 3px 31px; }
+
+/* ── RODAPÉ ── */
+.footer { margin-top: 12px; border-top: 1.5px solid #ddd; padding-top: 7px; font-size: 9pt; color: #aaa; display: flex; justify-content: space-between; align-items: flex-end; }
+.sig { text-align: center; }
+.sigline { border-bottom: 1.5px solid #ccd3e8; width: 130px; margin: 0 auto 3px; height: 16px; }
+
+/* ── QUEBRA ── */
+.pb { page-break-before: always; }
+
+/* ── GRELHA FINAL ── */
+.score-table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+.score-table th { background: #37474f; color: #fff; padding: 5px 8px; }
+.score-table td { border: 1.5px solid #ccd3e8; padding: 5px 8px; }
+.score-table td.f { background: #f8fbf8; }
+
+/* ── ICONE DE EMERGÊNCIA ── */
+.alert-box {
+  background: #fff3e0; border: 2px solid #e65100;
+  border-radius: 6px; padding: 6px 12px;
+  margin: 6px 0 6px 31px; font-size: 11pt;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ CABEÇALHO ══════ -->
+<div class="hdr">
+  <div class="hdr-row">
+    <div class="hdr-titles">
+      <h1>Ficha de Avaliação Sumativa — Final de Ano</h1>
+      <h2>Estudo do Meio &nbsp;|&nbsp; 3.º Ano do 1.º Ciclo do Ensino Básico</h2>
+      <p>Ano Letivo 2025 / 2026 &nbsp;·&nbsp; Manual <em>Zupi 3</em></p>
+    </div>
+    <div class="pts-box">
+      <div class="lbl">Cotação</div>
+      <div class="big">100</div>
+      <div class="lbl">pontos</div>
+    </div>
+  </div>
+  <table class="fields">
+    <tr>
+      <td class="lbl">Nome:</td>
+      <td style="width:42%"><span class="uline"></span></td>
+      <td class="lbl">N.º</td>
+      <td style="width:10%"><span class="uline"></span></td>
+      <td class="lbl">Turma:</td>
+      <td style="width:10%"><span class="uline"></span></td>
+    </tr>
+    <tr>
+      <td class="lbl">Professor(a):</td>
+      <td colspan="3"><span class="uline"></span></td>
+      <td class="lbl">Data:</td>
+      <td><span class="uline"></span></td>
+    </tr>
+    <tr>
+      <td class="lbl">Classificação:</td>
+      <td><span class="uline"></span></td>
+      <td colspan="4" style="font-size:9.5pt; color:#999; font-style:italic; text-align:right">
+        Enc. de Educação: <span style="display:inline-block; border-bottom:1px solid #aaa; width:120px; height:13px; vertical-align:bottom;"></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="instrucoes">
+  ✏️ &nbsp;Lê com atenção todas as perguntas antes de responderes. Escreve com letra legível. Não é permitido o uso de corretor. Boa sorte!
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     GRUPO I — SAÚDE E SEGURANÇA
+══════════════════════════════════════════════════════════ -->
+<div class="grupo">
+  <div class="grupo-titulo g1">
+    <span>Grupo I &nbsp;—&nbsp; Saúde e Segurança</span>
+    <span class="pts-badge">30 pontos</span>
+  </div>
+  <div class="grupo-corpo bc1">
+
+    <!-- Q1 – Liga situação ao procedimento -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">1</span>
+        <span class="q-txt">Liga cada situação de emergência ao procedimento correto. Escreve a letra na coluna de resposta.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+
+      <table class="gtab">
+        <tr>
+          <th class="th1">Situação</th>
+          <th class="th1" style="width:50px">Resp.</th>
+          <th class="th1">Procedimento correto</th>
+        </tr>
+        <tr>
+          <td><strong>1.</strong> Queimadura leve</td>
+          <td class="f" style="text-align:center"></td>
+          <td><strong>A.</strong> Imobilizar o membro e não tentar endireitar</td>
+        </tr>
+        <tr>
+          <td><strong>2.</strong> Suspeita de fratura</td>
+          <td class="f" style="text-align:center"></td>
+          <td><strong>B.</strong> Arrefecer com água fria durante 10 a 15 minutos</td>
+        </tr>
+        <tr>
+          <td><strong>3.</strong> Hemorragia (corte a sangrar)</td>
+          <td class="f" style="text-align:center"></td>
+          <td><strong>C.</strong> Fazer pressão com um pano limpo sobre a ferida</td>
+        </tr>
+        <tr>
+          <td><strong>4.</strong> Perda de sentidos / emergência grave</td>
+          <td class="f" style="text-align:center"></td>
+          <td><strong>D.</strong> Ligar imediatamente para o número de emergência 112</td>
+        </tr>
+        <tr>
+          <td><strong>5.</strong> Picada de inseto com reação</td>
+          <td class="f" style="text-align:center"></td>
+          <td><strong>E.</strong> Retirar o ferrão, lavar e aplicar gelo envolvido num pano</td>
+        </tr>
+        <tr>
+          <td><strong>6.</strong> Objeto no olho</td>
+          <td class="f" style="text-align:center"></td>
+          <td><strong>F.</strong> Lavar o olho com água corrente; não esfregar</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q2 – V/F primeiros socorros -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">2</span>
+        <span class="q-txt">Indica se as afirmações são <strong>Verdadeiras (V)</strong> ou <strong>Falsas (F)</strong>. Corrige as falsas na linha.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+      <table class="vf">
+        <tr>
+          <th class="th1" style="text-align:left">Afirmação</th>
+          <th class="th1">V</th><th class="th1">F</th>
+        </tr>
+        <tr><td>Em caso de queimadura, devemos colocar gelo diretamente na pele.</td><td class="c"></td><td class="c"></td></tr>
+        <tr><td>O número europeu de socorro é o 112.</td><td class="c"></td><td class="c"></td></tr>
+        <tr><td>Quando há suspeita de fratura, devemos tentar endireitar o osso.</td><td class="c"></td><td class="c"></td></tr>
+        <tr><td>Nunca devemos mover um acidentado grave sem ajuda especializada.</td><td class="c"></td><td class="c"></td></tr>
+      </table>
+      <div class="note">Correção das afirmações falsas:</div>
+      <div class="alines"><div class="al"></div><div class="al"></div></div>
+    </div>
+
+    <!-- Q3 – Estilo de vida saudável -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">3</span>
+        <span class="q-txt">Classifica cada hábito escrevendo <strong>S</strong> (saudável) ou <strong>NS</strong> (não saudável). Para os não saudáveis, propõe uma alternativa.</span>
+        <span class="q-pts">(10 pts)</span>
+      </div>
+      <table class="gtab">
+        <tr>
+          <th class="th1">Hábito</th>
+          <th class="th1" style="width:55px">S / NS</th>
+          <th class="th1">Alternativa saudável (só se NS)</th>
+        </tr>
+        <tr><td>Comer fruta e legumes todos os dias</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Dormir apenas 4 horas por noite</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Praticar exercício físico regularmente</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Beber refrigerantes em vez de água</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Lavar os dentes duas vezes por dia</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Passar mais de 4 horas seguidas em frente ao ecrã</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Lavar as mãos antes de comer</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+        <tr><td>Comer muitos doces e fritos todos os dias</td><td class="f" style="text-align:center"></td><td class="f"></td></tr>
+      </table>
+    </div>
+
+    <!-- Q4 – Complete frases saúde -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">4</span>
+        <span class="q-txt">Completa as frases com as palavras da caixa.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+      <div class="wbox">
+        <b>112</b> <b>água fria</b> <b>imobilizar</b> <b>pressão</b> <b>esfregar</b> <b>médico</b>
+      </div>
+      <div style="margin: 6px 0 4px 31px; font-size: 11pt; line-height: 2.2;">
+        a) O número de emergência europeu é o <span class="gap gap-s"></span>.<br>
+        b) Em caso de queimadura leve, arrefece com <span class="gap"></span> durante alguns minutos.<br>
+        c) Quando suspeitas de uma fratura, deves <span class="gap"></span> o membro e pedir ajuda.<br>
+        d) Numa hemorragia, faz <span class="gap gap-s"></span> com um pano limpo sobre a ferida.<br>
+        e) Quando tens algo no olho, não deves <span class="gap gap-s"></span> os olhos.<br>
+        f) Sempre que tens dúvidas sobre a tua saúde, fala com um <span class="gap gap-s"></span>.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     GRUPO II — SERES VIVOS E O AMBIENTE
+══════════════════════════════════════════════════════════ -->
+<div class="grupo pb">
+  <div class="grupo-titulo g2">
+    <span>Grupo II &nbsp;—&nbsp; Seres Vivos e o Ambiente</span>
+    <span class="pts-badge">40 pontos</span>
+  </div>
+  <div class="grupo-corpo bc2">
+
+    <!-- Q5 – Características dos seres vivos -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">5</span>
+        <span class="q-txt">Rodeia as características que <strong>todos</strong> os seres vivos possuem.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+      <table class="mc" style="margin: 6px 0 4px 31px">
+        <tr>
+          <td><span class="circle"></span>Nascem, crescem e morrem</td>
+          <td><span class="circle"></span>Falam e escrevem</td>
+          <td><span class="circle"></span>Reproduzem-se</td>
+        </tr>
+        <tr>
+          <td><span class="circle"></span>Alimentam-se</td>
+          <td><span class="circle"></span>Têm motor elétrico</td>
+          <td><span class="circle"></span>Respiram</td>
+        </tr>
+        <tr>
+          <td><span class="circle"></span>Reagem a estímulos</td>
+          <td><span class="circle"></span>São feitos de plástico</td>
+          <td><span class="circle"></span>São constituídos por células</td>
+        </tr>
+      </table>
+      <div class="note">(Rodeia apenas as corretas — há 6 corretas e 3 incorretas)</div>
+    </div>
+
+    <!-- Q6 – Fatores do ambiente -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">6</span>
+        <span class="q-txt">Liga cada fator do ambiente à sua importância para os seres vivos. Escreve a letra na coluna de resposta.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+      <table class="gtab">
+        <tr>
+          <th class="th2">Fator do ambiente</th>
+          <th class="th2" style="width:50px">Resp.</th>
+          <th class="th2">Importância</th>
+        </tr>
+        <tr>
+          <td><strong>1.</strong> Luz solar</td><td class="f" style="text-align:center"></td>
+          <td><strong>A.</strong> Necessária para a respiração e fotossíntese</td>
+        </tr>
+        <tr>
+          <td><strong>2.</strong> Água</td><td class="f" style="text-align:center"></td>
+          <td><strong>B.</strong> Fornece nutrientes minerais às plantas</td>
+        </tr>
+        <tr>
+          <td><strong>3.</strong> Ar</td><td class="f" style="text-align:center"></td>
+          <td><strong>C.</strong> Permite a fotossíntese e regula os ciclos biológicos</td>
+        </tr>
+        <tr>
+          <td><strong>4.</strong> Temperatura</td><td class="f" style="text-align:center"></td>
+          <td><strong>D.</strong> Essencial para o transporte de nutrientes e hidratação</td>
+        </tr>
+        <tr>
+          <td><strong>5.</strong> Solo</td><td class="f" style="text-align:center"></td>
+          <td><strong>E.</strong> Influencia a germinação, o crescimento e a reprodução</td>
+        </tr>
+        <tr>
+          <td><strong>6.</strong> Sais minerais</td><td class="f" style="text-align:center"></td>
+          <td><strong>F.</strong> Necessários para o desenvolvimento saudável das plantas</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q7 – Efeitos dos fatores nas plantas -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">7</span>
+        <span class="q-txt">Completa a tabela com o efeito de cada fator nas plantas.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+      <table class="gtab">
+        <tr>
+          <th class="th2" style="width:140px">Fator do ambiente</th>
+          <th class="th2">O que acontece se <strong>falta</strong></th>
+          <th class="th2">O que acontece se há <strong>excesso</strong></th>
+        </tr>
+        <tr><td><strong>Água</strong></td><td class="f"></td><td class="f"></td></tr>
+        <tr><td><strong>Luz solar</strong></td><td class="f"></td><td class="f"></td></tr>
+        <tr><td><strong>Temperatura</strong></td><td class="f"></td><td class="f"></td></tr>
+        <tr><td><strong>Sais minerais</strong></td><td class="f"></td><td class="f"></td></tr>
+      </table>
+    </div>
+
+    <!-- Q8 – Germinação do feijão -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">8</span>
+        <span class="q-txt">Ordena as etapas da germinação do feijão, numerando de <strong>1</strong> (primeira) a <strong>6</strong> (última).</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+      <table class="order-table">
+        <tr>
+          <th>Ordem</th>
+          <th>Etapa da germinação</th>
+        </tr>
+        <tr><td class="num"></td><td>A plântula emerge do solo e as primeiras folhas verdes aparecem.</td></tr>
+        <tr><td class="num"></td><td>A semente absorve água e a casca amolece (embebição).</td></tr>
+        <tr><td class="num"></td><td>Aparecem as folhas cotilédones que alimentam a plântula.</td></tr>
+        <tr><td class="num"></td><td>A radícula (futura raiz) começa a crescer para baixo.</td></tr>
+        <tr><td class="num"></td><td>A casca da semente rebenta.</td></tr>
+        <tr><td class="num"></td><td>O caulículo (futuro caule) cresce para cima em direção à luz.</td></tr>
+      </table>
+      <p class="sub" data-l="a">Para que a germinação ocorra, quais as três condições indispensáveis?</p>
+      <div class="alines"><div class="al"></div></div>
+    </div>
+
+    <!-- Q9 – Cadeias alimentares -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">9</span>
+        <span class="q-txt">Cadeias alimentares.</span>
+        <span class="q-pts">(14 pts)</span>
+      </div>
+      <p class="sub" data-l="a">Completa as cadeias alimentares com os seres vivos da caixa.</p>
+      <div class="wbox">
+        <b>relva</b> &nbsp;<b>raposa</b> &nbsp;<b>cobra</b> &nbsp;<b>pulgão</b> &nbsp;<b>águia</b> &nbsp;<b>coelho</b> &nbsp;<b>joaninha</b> &nbsp;<b>rato</b>
+      </div>
+
+      <div style="margin: 4px 0 8px 31px; font-size: 11pt; line-height: 2.6;">
+        Cadeia 1:&ensp;
+        <span class="fill-chain"></span>
+        <span class="arrow">→</span>
+        <span class="fill-chain"></span>
+        <span class="arrow">→</span>
+        <span class="fill-chain"></span>
+        <span class="arrow">→</span>
+        <strong>águia</strong>
+        <br>
+        Cadeia 2:&ensp;
+        <strong>relva</strong>
+        <span class="arrow">→</span>
+        <span class="fill-chain"></span>
+        <span class="arrow">→</span>
+        <span class="fill-chain"></span>
+        <br>
+        Cadeia 3:&ensp;
+        <strong>plantas</strong>
+        <span class="arrow">→</span>
+        <span class="fill-chain"></span>
+        <span class="arrow">→</span>
+        <strong>joaninha</strong>
+      </div>
+
+      <p class="sub" data-l="b">Responde às perguntas sobre as cadeias alimentares.</p>
+      <table class="gtab" style="margin-left:31px; width:calc(100% - 31px)">
+        <tr>
+          <th class="th2" style="text-align:left">Pergunta</th>
+          <th class="th2">Resposta</th>
+        </tr>
+        <tr><td>Como se chamam os seres que produzem o seu próprio alimento (plantas)?</td><td class="f"></td></tr>
+        <tr><td>Como se chamam os seres que se alimentam de outros?</td><td class="f"></td></tr>
+        <tr><td>Todas as cadeias alimentares começam sempre por um ___________?</td><td class="f"></td></tr>
+        <tr><td>O que acontece a uma cadeia se o coelho desaparecer (na cadeia 1)?</td><td class="f"></td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     GRUPO III — AMEAÇAS E REPRODUÇÃO
+══════════════════════════════════════════════════════════ -->
+<div class="grupo pb">
+  <div class="grupo-titulo g3">
+    <span>Grupo III &nbsp;—&nbsp; Ameaças aos Seres Vivos e Reprodução</span>
+    <span class="pts-badge">30 pontos</span>
+  </div>
+  <div class="grupo-corpo bc3">
+
+    <!-- Q10 – Ameaças -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">10</span>
+        <span class="q-txt">Ameaças aos seres vivos.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+      <p class="sub" data-l="a">Classifica cada ameaça. Escreve <strong>P</strong> (poluição), <strong>D</strong> (desflorestação), <strong>C</strong> (caça/pesca excessiva) ou <strong>O</strong> (outras).</p>
+      <table class="gtab">
+        <tr><th class="th3">Ameaça</th><th class="th3" style="width:55px">Tipo</th><th class="th3">Ameaça</th><th class="th3" style="width:55px">Tipo</th></tr>
+        <tr>
+          <td>Deitar lixo nos rios</td><td class="f" style="text-align:center"></td>
+          <td>Abater florestas para agricultura</td><td class="f" style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>Caçar animais em vias de extinção</td><td class="f" style="text-align:center"></td>
+          <td>Gases dos automóveis e fábricas</td><td class="f" style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>Incêndios florestais</td><td class="f" style="text-align:center"></td>
+          <td>Pesca excessiva de certas espécies</td><td class="f" style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>Uso excessivo de pesticidas</td><td class="f" style="text-align:center"></td>
+          <td>Introdução de espécies invasoras</td><td class="f" style="text-align:center"></td>
+        </tr>
+      </table>
+      <p class="sub" data-l="b">Indica <strong>duas ações</strong> que podemos fazer no dia a dia para proteger os seres vivos.</p>
+      <div class="alines"><div class="al"></div><div class="al"></div></div>
+    </div>
+
+    <!-- Q11 – Reprodução animal -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">11</span>
+        <span class="q-txt">Reprodução animal. Classifica cada animal como <strong>Ovíparo (O)</strong>, <strong>Vivíparo (V)</strong> ou <strong>Ovovivíparo (OV)</strong>.</span>
+        <span class="q-pts">(10 pts)</span>
+      </div>
+      <div class="note"><strong>Recorda:</strong> Ovíparo = põe ovos &nbsp;·&nbsp; Vivíparo = crias nascem do interior da mãe &nbsp;·&nbsp; Ovovivíparo = ovo desenvolve-se dentro da mãe</div>
+      <table class="gtab">
+        <tr>
+          <th class="th3">Animal</th><th class="th3" style="width:60px">Tipo</th>
+          <th class="th3">Animal</th><th class="th3" style="width:60px">Tipo</th>
+          <th class="th3">Animal</th><th class="th3" style="width:60px">Tipo</th>
+        </tr>
+        <tr>
+          <td>Galinha</td><td class="f" style="text-align:center"></td>
+          <td>Cão</td><td class="f" style="text-align:center"></td>
+          <td>Cobra</td><td class="f" style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>Golfinho</td><td class="f" style="text-align:center"></td>
+          <td>Sapo</td><td class="f" style="text-align:center"></td>
+          <td>Tubarão (alguns)</td><td class="f" style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>Borboleta</td><td class="f" style="text-align:center"></td>
+          <td>Baleia</td><td class="f" style="text-align:center"></td>
+          <td>Tartaruga</td><td class="f" style="text-align:center"></td>
+        </tr>
+        <tr>
+          <td>Peixe-espada</td><td class="f" style="text-align:center"></td>
+          <td colspan="3" class="f"><em>Acrescenta um animal ovíparo que conheças:</em> <span class="gap"></span></td>
+        </tr>
+      </table>
+      <p class="sub" data-l="a">Os mamíferos são, na sua maioria, <strong>ovíparos</strong> ou <strong>vivíparos</strong>? Dá dois exemplos.</p>
+      <div class="alines"><div class="al"></div></div>
+    </div>
+
+    <!-- Q12 – Reprodução das plantas -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">12</span>
+        <span class="q-txt">Reprodução das plantas.</span>
+        <span class="q-pts">(12 pts)</span>
+      </div>
+      <p class="sub" data-l="a">Liga cada planta ao seu modo de reprodução vegetativa (assexuada). Escreve a letra na coluna de resposta.</p>
+      <table class="gtab">
+        <tr>
+          <th class="th3">Planta</th>
+          <th class="th3" style="width:50px">Resp.</th>
+          <th class="th3">Modo de reprodução vegetativa</th>
+        </tr>
+        <tr><td><strong>1.</strong> Morango</td><td class="f" style="text-align:center"></td><td><strong>A.</strong> Bolbo</td></tr>
+        <tr><td><strong>2.</strong> Tulipa</td><td class="f" style="text-align:center"></td><td><strong>B.</strong> Estolho (caule rastejante)</td></tr>
+        <tr><td><strong>3.</strong> Batata</td><td class="f" style="text-align:center"></td><td><strong>C.</strong> Estaca (ramo cortado)</td></tr>
+        <tr><td><strong>4.</strong> Roseira</td><td class="f" style="text-align:center"></td><td><strong>D.</strong> Tubérculo</td></tr>
+      </table>
+
+      <p class="sub" data-l="b">Completa o esquema da reprodução sexuada das plantas. Coloca as palavras na ordem correta.</p>
+      <div class="wbox">
+        <b>fruto</b> &nbsp;<b>semente</b> &nbsp;<b>flor</b> &nbsp;<b>nova planta</b> &nbsp;<b>polinização</b>
+      </div>
+      <div style="margin: 6px 0 8px 31px; text-align: center; font-size: 12pt; line-height: 2.8; background: #f0f4ff; border: 1.5px solid #1565c0; border-radius: 6px; padding: 8px;">
+        <span class="fill-chain" style="border-color:#1565c0;"></span>
+        <span class="arrow" style="color:#1565c0;">→</span>
+        <span class="fill-chain" style="border-color:#1565c0;"></span>
+        <span class="arrow" style="color:#1565c0;">→</span>
+        <span class="fill-chain" style="border-color:#1565c0;"></span>
+        <span class="arrow" style="color:#1565c0;">→</span>
+        <span class="fill-chain" style="border-color:#1565c0;"></span>
+        <span class="arrow" style="color:#1565c0;">→</span>
+        <span class="fill-chain" style="border-color:#1565c0;"></span>
+      </div>
+
+      <p class="sub" data-l="c">Qual a diferença entre reprodução sexuada e reprodução vegetativa (assexuada)?</p>
+      <div class="alines"><div class="al"></div><div class="al"></div></div>
+
+      <p class="sub" data-l="d">Rodeia o agente polinizador correto para cada planta.</p>
+      <table class="gtab">
+        <tr><th class="th3">Planta</th><th class="th3">Agentes polinizadores possíveis</th></tr>
+        <tr><td>Girassol</td><td>Vento &nbsp;·&nbsp; <strong>Abelha</strong> &nbsp;·&nbsp; Água &nbsp;·&nbsp; Morcego</td></tr>
+        <tr><td>Pinheiro</td><td><strong>Vento</strong> &nbsp;·&nbsp; Abelha &nbsp;·&nbsp; Borboleta &nbsp;·&nbsp; Pássaro</td></tr>
+      </table>
+      <div class="note">(Sublinha a resposta correta em cada linha)</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════ GRELHA DE CLASSIFICAÇÃO ══════ -->
+<div class="grupo">
+  <div class="grupo-titulo gcont">
+    <span>Grelha de Classificação &nbsp;—&nbsp; Uso exclusivo do(a) Professor(a)</span>
+    <span class="pts-badge"></span>
+  </div>
+  <div class="grupo-corpo bcc">
+    <table class="score-table">
+      <tr>
+        <th>Grupo / Domínio</th>
+        <th>Conteúdos avaliados</th>
+        <th style="width:90px">Cot. máx.</th>
+        <th style="width:90px">Cot. obtida</th>
+      </tr>
+      <tr>
+        <td>Grupo I — Saúde e Segurança</td>
+        <td>Primeiros socorros, queimaduras/fraturas, estilo de vida saudável</td>
+        <td style="text-align:center">30</td>
+        <td class="f"></td>
+      </tr>
+      <tr>
+        <td>Grupo II — Seres Vivos e Ambiente</td>
+        <td>Características dos seres vivos, fatores do ambiente, efeitos nas plantas, germinação do feijão, cadeias alimentares</td>
+        <td style="text-align:center">40</td>
+        <td class="f"></td>
+      </tr>
+      <tr>
+        <td>Grupo III — Ameaças e Reprodução</td>
+        <td>Ameaças aos seres vivos, reprodução animal (ovíparo/vivíparo), reprodução das plantas (sexuada e vegetativa)</td>
+        <td style="text-align:center">30</td>
+        <td class="f"></td>
+      </tr>
+      <tr style="font-weight:bold">
+        <td colspan="2">TOTAL</td>
+        <td style="text-align:center">100</td>
+        <td class="f"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <div>Ficha de Avaliação — Estudo do Meio — 3.º Ano — 2025/2026</div>
+  <div class="sig">
+    <div class="sigline"></div>
+    <div>Assinatura do(a) Encarregado(a) de Educação</div>
+  </div>
+  <div>Total: 100 pontos</div>
+</div>
+
+</body>
+</html>
