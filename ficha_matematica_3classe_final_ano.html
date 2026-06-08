@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<title>Ficha de Avaliação – Matemática – 3.º Ano</title>
+<style>
+@page { size: A4; margin: 15mm 14mm 13mm 14mm; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  color: #111;
+  margin: 0; padding: 0;
+}
+
+/* ── FRAÇÕES ── */
+.fr {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 2px;
+  font-weight: bold;
+  font-size: 11pt;
+  line-height: 1.15;
+}
+.fr .n { display: block; border-bottom: 1.5px solid #111; padding: 0 4px; }
+.fr .d { display: block; padding: 0 4px; }
+.fbox {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 2px;
+  font-weight: bold;
+  font-size: 11pt;
+  line-height: 1.15;
+}
+.fbox .n { display: block; border-bottom: 1.5px solid #111; padding: 0 4px; min-width: 24px; }
+.fbox .d { display: block; padding: 0 4px; min-width: 24px; }
+.blank-fr {
+  display: inline-block;
+  border-bottom: 1.5px solid #1565c0;
+  min-width: 28px; height: 14px;
+  vertical-align: bottom; margin: 0 2px;
+}
+
+/* ── CABEÇALHO ── */
+.hdr {
+  border: 2.5px solid #1565c0;
+  border-radius: 8px;
+  padding: 9px 13px 7px;
+  margin-bottom: 10px;
+  background: #e3f2fd;
+}
+.hdr-row { display: flex; align-items: center; margin-bottom: 7px; }
+.hdr-titles { flex: 1; }
+.hdr-titles h1 { font-size: 12.5pt; font-weight: bold; color: #1565c0; text-transform: uppercase; margin: 0 0 2px; }
+.hdr-titles h2 { font-size: 11pt; font-weight: bold; color: #e65100; margin: 0; }
+.hdr-titles p  { font-size: 9.5pt; color: #555; margin: 2px 0 0; }
+.pts-box {
+  border: 2.5px solid #e65100; border-radius: 7px;
+  padding: 5px 11px; text-align: center; background: #fff; margin-left: 10px;
+}
+.pts-box .big { font-size: 20pt; font-weight: bold; color: #e65100; line-height: 1; }
+.pts-box .lbl { font-size: 8.5pt; color: #888; }
+
+.fields { width: 100%; border-collapse: collapse; }
+.fields td { padding: 2px 5px 2px 0; vertical-align: bottom; font-size: 10pt; }
+.fields td.lbl { font-weight: bold; white-space: nowrap; padding-right: 4px; }
+.uline { border-bottom: 1.5px solid #1565c0; display: block; min-height: 14px; }
+
+.instrucoes {
+  font-size: 9.5pt; color: #555; font-style: italic;
+  background: #fffbe6; border-left: 4px solid #f4c430;
+  padding: 5px 10px; margin-bottom: 10px;
+}
+
+/* ── GRUPOS ── */
+.grupo { margin-bottom: 13px; }
+.grupo-titulo {
+  border-radius: 6px 6px 0 0;
+  padding: 6px 13px;
+  font-size: 11pt; font-weight: bold;
+  display: flex; justify-content: space-between; align-items: center;
+  color: #fff;
+}
+.g1 { background: #1565c0; }
+.g2 { background: #6a1b9a; }
+.g3 { background: #2e7d32; }
+.g4 { background: #e65100; }
+.pts-badge {
+  background: rgba(255,255,255,0.22);
+  border-radius: 20px; padding: 1px 10px;
+  font-size: 9.5pt; font-weight: bold;
+}
+.grupo-corpo { border-top: none; border-radius: 0 0 6px 6px; padding: 10px 13px; }
+.bc1 { border: 2px solid #1565c0; }
+.bc2 { border: 2px solid #6a1b9a; }
+.bc3 { border: 2px solid #2e7d32; }
+.bc4 { border: 2px solid #e65100; }
+
+/* ── PERGUNTAS ── */
+.q { margin-bottom: 11px; }
+.q-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.q-num {
+  display: inline-block; width: 23px; height: 23px;
+  border-radius: 50%; text-align: center;
+  line-height: 23px; font-weight: bold; font-size: 10pt; flex-shrink: 0; color: #fff;
+}
+.n1{background:#1565c0;} .n2{background:#6a1b9a;} .n3{background:#2e7d32;} .n4{background:#e65100;}
+.q-txt { font-size: 11.5pt; flex: 1; padding-top: 1px; }
+.q-pts { font-size: 9pt; color: #999; font-style: italic; white-space: nowrap; padding-top: 3px; }
+
+.sub { margin: 5px 0 5px 31px; font-size: 11pt; }
+.sub::before { content: attr(data-l) ") "; font-weight: bold; color: #1565c0; }
+
+/* ── RESPOSTA ── */
+.alines { margin: 5px 0 3px 31px; }
+.al { border-bottom: 1.5px solid #ccd3e8; height: 21px; margin-bottom: 4px; }
+.gap { display: inline-block; border-bottom: 1.5px solid #1565c0; min-width: 60px; height: 15px; vertical-align: bottom; margin: 0 3px; }
+.gap-s { min-width: 36px; }
+.gap-l { min-width: 110px; }
+
+/* ── TABELAS ── */
+.gtab { margin: 6px 0 4px 31px; width: calc(100% - 31px); border-collapse: collapse; font-size: 11pt; }
+.gtab th { padding: 4px 8px; text-align: center; color: #fff; }
+.gtab td { border: 1.5px solid #ccd3e8; padding: 5px 8px; }
+.gtab td.f { background: #f4f8ff; min-width: 55px; }
+.th1{background:#1565c0;} .th2{background:#6a1b9a;} .th3{background:#2e7d32;} .th4{background:#e65100;}
+
+/* ── CÁLCULOS EM GRELHA ── */
+.calc-grid { margin: 6px 0 4px 31px; border-collapse: collapse; }
+.calc-grid td { padding: 5px 12px; font-size: 11.5pt; vertical-align: middle; }
+.calc-box {
+  display: inline-block;
+  border: 1.5px solid #1565c0;
+  border-radius: 4px;
+  min-width: 44px; height: 22px;
+  vertical-align: middle;
+}
+
+/* ── GRELHA QUADRICULADA (simetria/área) ── */
+.qgrid { border-collapse: collapse; margin: 6px 0 4px 31px; }
+.qgrid td {
+  width: 18px; height: 18px;
+  border: 1px solid #90a4ae;
+  padding: 0;
+}
+.filled { background: #bbdefb; }
+.filled2 { background: #c8e6c9; }
+.axis-col { border-right: 3px solid #e65100 !important; }
+.axis-row { border-bottom: 3px solid #e65100 !important; }
+
+/* ── NOTAS ── */
+.note { font-size: 10pt; color: #555; font-style: italic; margin: 3px 0 3px 31px; }
+
+/* ── CAIXA DE PALAVRAS ── */
+.wbox {
+  border: 2px dashed #1565c0; border-radius: 6px;
+  padding: 6px 12px; margin: 7px 0 7px 31px;
+  font-size: 11pt; text-align: center; background: #e3f2fd;
+}
+.wbox b { color: #e65100; margin: 0 6px; }
+
+/* ── SHAPES (PERÍMETRO/ÁREA) ── */
+.shapes-row { margin: 6px 0 4px 31px; }
+.shape-item { display: inline-block; margin-right: 20px; margin-bottom: 10px; vertical-align: top; text-align: center; }
+.shape-label { font-size: 10pt; color: #1565c0; margin-top: 4px; }
+.rect-shape {
+  border: 2.5px solid #1565c0;
+  display: inline-block;
+  position: relative;
+  background: #e3f2fd;
+}
+.side-top { font-size: 9.5pt; font-weight: bold; color: #e65100; display: block; text-align: center; }
+.side-right { font-size: 9.5pt; font-weight: bold; color: #e65100; display: inline-block; }
+.tri-container { position: relative; display: inline-block; }
+
+/* ── GRÁFICO DE BARRAS ── */
+.barchart { margin: 8px 0 6px 31px; }
+.bar-row { display: flex; align-items: center; margin-bottom: 5px; }
+.bar-lbl { width: 86px; font-size: 10.5pt; }
+.bar-track { height: 16px; background: #e3f2fd; border: 1px solid #90a4ae; border-radius: 0 4px 4px 0; flex: 1; position: relative; }
+.bar-fill { height: 100%; border-radius: 0 3px 3px 0; }
+.bar-val { width: 28px; text-align: right; font-size: 10.5pt; font-weight: bold; color: #1565c0; margin-left: 5px; }
+.bar-axis { display: flex; margin: 0 0 3px 86px; }
+.bar-axis-num { font-size: 8.5pt; color: #888; }
+
+/* ── PROBABILIDADE ── */
+.prob-box {
+  border: 1.5px solid #1565c0; border-radius: 6px;
+  padding: 5px 12px; margin: 5px 0 5px 31px;
+  font-size: 11pt;
+}
+.prob-opts { display: flex; gap: 8px; margin: 3px 0 0 10px; font-size: 10.5pt; }
+.prob-opt { padding: 2px 8px; border: 1.5px solid #1565c0; border-radius: 4px; background: #e3f2fd; }
+
+/* ── RODAPÉ ── */
+.footer { margin-top: 10px; border-top: 1.5px solid #ddd; padding-top: 7px; font-size: 9pt; color: #aaa; display: flex; justify-content: space-between; align-items: flex-end; }
+.sig { text-align: center; }
+.sigline { border-bottom: 1.5px solid #ccd3e8; width: 130px; margin: 0 auto 3px; height: 16px; }
+
+/* ── QUEBRA DE PÁGINA ── */
+.pb { page-break-before: always; }
+
+/* ── GRELHA FINAL ── */
+.score-table { width: 100%; border-collapse: collapse; font-size: 11pt; }
+.score-table th { background: #37474f; color: #fff; padding: 5px 8px; }
+.score-table td { border: 1.5px solid #ccd3e8; padding: 5px 8px; }
+.score-table td.f { background: #f8f9fc; }
+
+/* ── PROBLEMAS ── */
+.prob-enunc {
+  background: #fff8e1; border: 2px solid #f9a825;
+  border-radius: 6px; padding: 8px 12px;
+  margin: 5px 0 5px 31px; font-size: 11.5pt; line-height: 1.6;
+}
+.prob-oper { margin: 4px 0 4px 31px; font-size: 10.5pt; font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ══════ CABEÇALHO ══════ -->
+<div class="hdr">
+  <div class="hdr-row">
+    <div class="hdr-titles">
+      <h1>Ficha de Avaliação Sumativa — Final de Ano (3.º Período)</h1>
+      <h2>Matemática &nbsp;|&nbsp; 3.º Ano do 1.º Ciclo do Ensino Básico</h2>
+      <p>Ano Letivo 2025 / 2026 &nbsp;·&nbsp; Manual <em>Zupi 3</em> &nbsp;·&nbsp; PMEB — Ministério da Educação</p>
+    </div>
+    <div class="pts-box">
+      <div class="lbl">Cotação</div>
+      <div class="big">100</div>
+      <div class="lbl">pontos</div>
+    </div>
+  </div>
+  <table class="fields">
+    <tr>
+      <td class="lbl">Nome:</td>
+      <td style="width:42%"><span class="uline"></span></td>
+      <td class="lbl">N.º</td>
+      <td style="width:9%"><span class="uline"></span></td>
+      <td class="lbl">Turma:</td>
+      <td style="width:9%"><span class="uline"></span></td>
+    </tr>
+    <tr>
+      <td class="lbl">Professor(a):</td>
+      <td colspan="3"><span class="uline"></span></td>
+      <td class="lbl">Data:</td>
+      <td><span class="uline"></span></td>
+    </tr>
+    <tr>
+      <td class="lbl">Classificação:</td>
+      <td><span class="uline"></span></td>
+      <td colspan="4" style="font-size:9pt; color:#999; font-style:italic; text-align:right">
+        Enc. Educação: <span style="display:inline-block; border-bottom:1px solid #aaa; width:120px; height:12px; vertical-align:bottom;"></span>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="instrucoes">✏️ &nbsp;Lê com atenção todas as questões. Apresenta os cálculos. Não é permitido o uso de calculadora nem de corretor.</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     GRUPO I — FRAÇÕES
+══════════════════════════════════════════════════ -->
+<div class="grupo">
+  <div class="grupo-titulo g1">
+    <span>Grupo I &nbsp;—&nbsp; Frações</span>
+    <span class="pts-badge">20 pontos</span>
+  </div>
+  <div class="grupo-corpo bc1">
+
+    <!-- Q1 – Frações equivalentes -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">1</span>
+        <span class="q-txt">Completa as frações equivalentes. Escreve o número que falta.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+      <div style="margin: 8px 0 6px 31px; font-size: 12pt; line-height: 3;">
+
+        a)&ensp;
+        <span class="fr"><span class="n">1</span><span class="d">2</span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n"><span class="blank-fr"></span></span><span class="d">4</span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n">3</span><span class="d"><span class="blank-fr"></span></span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n"><span class="blank-fr"></span></span><span class="d">8</span></span>
+
+        &emsp;&emsp;
+
+        b)&ensp;
+        <span class="fr"><span class="n">1</span><span class="d">3</span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n">2</span><span class="d"><span class="blank-fr"></span></span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n"><span class="blank-fr"></span></span><span class="d">9</span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n">4</span><span class="d"><span class="blank-fr"></span></span></span>
+
+        <br>
+
+        c)&ensp;
+        <span class="fr"><span class="n">1</span><span class="d">4</span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n">2</span><span class="d"><span class="blank-fr"></span></span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n"><span class="blank-fr"></span></span><span class="d">12</span></span>
+
+        &emsp;&emsp;
+
+        d)&ensp;
+        <span class="fr"><span class="n">2</span><span class="d">3</span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n">4</span><span class="d"><span class="blank-fr"></span></span></span>
+        &nbsp;=&nbsp;
+        <span class="fbox"><span class="n"><span class="blank-fr"></span></span><span class="d">9</span></span>
+      </div>
+    </div>
+
+    <!-- Q2 – Soma de frações -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">2</span>
+        <span class="q-txt">Calcula as somas de frações. Simplifica o resultado quando possível.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+      <table class="calc-grid">
+        <tr>
+          <td>a)&ensp;
+            <span class="fr"><span class="n">1</span><span class="d">4</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">2</span><span class="d">4</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>b)&ensp;
+            <span class="fr"><span class="n">2</span><span class="d">6</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">3</span><span class="d">6</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>c)&ensp;
+            <span class="fr"><span class="n">1</span><span class="d">8</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">3</span><span class="d">8</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>d)&ensp;
+            <span class="fr"><span class="n">1</span><span class="d">5</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">3</span><span class="d">5</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>e)&ensp;
+            <span class="fr"><span class="n">3</span><span class="d">10</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">4</span><span class="d">10</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>f)&ensp;
+            <span class="fr"><span class="n">1</span><span class="d">6</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">2</span><span class="d">6</span></span>
+            &nbsp;+&nbsp;
+            <span class="fr"><span class="n">2</span><span class="d">6</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q3 – Subtração de frações -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n1">3</span>
+        <span class="q-txt">Calcula as subtrações de frações. Simplifica o resultado quando possível.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+      <table class="calc-grid">
+        <tr>
+          <td>a)&ensp;
+            <span class="fr"><span class="n">3</span><span class="d">4</span></span>
+            &nbsp;−&nbsp;
+            <span class="fr"><span class="n">1</span><span class="d">4</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>b)&ensp;
+            <span class="fr"><span class="n">5</span><span class="d">6</span></span>
+            &nbsp;−&nbsp;
+            <span class="fr"><span class="n">2</span><span class="d">6</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>c)&ensp;
+            <span class="fr"><span class="n">7</span><span class="d">8</span></span>
+            &nbsp;−&nbsp;
+            <span class="fr"><span class="n">3</span><span class="d">8</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>d)&ensp;
+            <span class="fr"><span class="n">4</span><span class="d">5</span></span>
+            &nbsp;−&nbsp;
+            <span class="fr"><span class="n">2</span><span class="d">5</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>e)&ensp;
+            <span class="fr"><span class="n">9</span><span class="d">10</span></span>
+            &nbsp;−&nbsp;
+            <span class="fr"><span class="n">4</span><span class="d">10</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+          <td>f)&ensp;
+            <span class="fr"><span class="n">1</span><span class="d">1</span></span>
+            &nbsp;−&nbsp;
+            <span class="fr"><span class="n">3</span><span class="d">8</span></span>
+            &nbsp;=&nbsp;<div class="calc-box"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     GRUPO II — MULTIPLICAÇÃO E DIVISÃO
+══════════════════════════════════════════════════ -->
+<div class="grupo">
+  <div class="grupo-titulo g2">
+    <span>Grupo II &nbsp;—&nbsp; Multiplicação e Divisão</span>
+    <span class="pts-badge">20 pontos</span>
+  </div>
+  <div class="grupo-corpo bc2">
+
+    <!-- Q4 – Multiplicação -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">4</span>
+        <span class="q-txt">Calcula as multiplicações. Apresenta o algoritmo no espaço indicado.</span>
+        <span class="q-pts">(10 pts)</span>
+      </div>
+      <table class="calc-grid">
+        <tr>
+          <td>a)&ensp; 34 × 5 = <div class="calc-box" style="min-width:55px"></div></td>
+          <td>b)&ensp; 47 × 3 = <div class="calc-box" style="min-width:55px"></div></td>
+          <td>c)&ensp; 56 × 4 = <div class="calc-box" style="min-width:55px"></div></td>
+          <td>d)&ensp; 23 × 6 = <div class="calc-box" style="min-width:55px"></div></td>
+          <td>e)&ensp; 78 × 5 = <div class="calc-box" style="min-width:55px"></div></td>
+        </tr>
+      </table>
+      <div class="note">Rascunho dos algoritmos:</div>
+      <table class="calc-grid">
+        <tr>
+          <td style="vertical-align:top; padding:4px 18px 4px 0;">
+            <div style="border:1.5px solid #9c27b0; border-radius:4px; width:55px; height:60px; background:#faf6ff;"></div>
+          </td>
+          <td style="vertical-align:top; padding:4px 18px 4px 0;">
+            <div style="border:1.5px solid #9c27b0; border-radius:4px; width:55px; height:60px; background:#faf6ff;"></div>
+          </td>
+          <td style="vertical-align:top; padding:4px 18px 4px 0;">
+            <div style="border:1.5px solid #9c27b0; border-radius:4px; width:55px; height:60px; background:#faf6ff;"></div>
+          </td>
+          <td style="vertical-align:top; padding:4px 18px 4px 0;">
+            <div style="border:1.5px solid #9c27b0; border-radius:4px; width:55px; height:60px; background:#faf6ff;"></div>
+          </td>
+          <td style="vertical-align:top; padding:4px 0;">
+            <div style="border:1.5px solid #9c27b0; border-radius:4px; width:55px; height:60px; background:#faf6ff;"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q5 – Divisão -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n2">5</span>
+        <span class="q-txt">Calcula as divisões. Escreve o quociente e o resto (quando existe).</span>
+        <span class="q-pts">(10 pts)</span>
+      </div>
+      <table class="calc-grid">
+        <tr>
+          <td>a)&ensp; 72 ÷ 9 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>b)&ensp; 56 ÷ 7 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>c)&ensp; 48 ÷ 6 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>d)&ensp; 35 ÷ 5 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>e)&ensp; 90 ÷ 10 = <div class="calc-box" style="min-width:40px"></div></td>
+        </tr>
+        <tr>
+          <td>f)&ensp; 84 ÷ 4 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>g)&ensp; 63 ÷ 7 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>h)&ensp; 100 ÷ 5 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>i)&ensp; 45 ÷ 9 = <div class="calc-box" style="min-width:40px"></div></td>
+          <td>j)&ensp; 96 ÷ 8 = <div class="calc-box" style="min-width:40px"></div></td>
+        </tr>
+      </table>
+      <p class="sub" data-l="k">Escreve a frase de multiplicação correspondente à divisão: &nbsp;64 ÷ 8 = 8</p>
+      <div class="alines" style="margin-left:31px"><div class="al"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     GRUPO III — GEOMETRIA
+══════════════════════════════════════════════════ -->
+<div class="grupo pb">
+  <div class="grupo-titulo g3">
+    <span>Grupo III &nbsp;—&nbsp; Geometria</span>
+    <span class="pts-badge">30 pontos</span>
+  </div>
+  <div class="grupo-corpo bc3">
+
+    <!-- Q6 – Perímetro -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">6</span>
+        <span class="q-txt">Calcula o perímetro de cada figura. Apresenta o cálculo e a resposta com unidade.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+
+      <table class="calc-grid" style="margin-left:31px">
+        <tr>
+          <!-- Retângulo -->
+          <td style="vertical-align:top; padding-right:30px; text-align:center">
+            <div style="font-size:9.5pt; color:#555; margin-bottom:3px;">a) Retângulo</div>
+            <table style="border-collapse:collapse; margin:0 auto;">
+              <tr>
+                <td style="width:20px"></td>
+                <td style="text-align:center; font-size:10pt; font-weight:bold; color:#e65100; padding:0 0 2px 0; width:70px">8 cm</td>
+                <td style="width:20px"></td>
+              </tr>
+              <tr>
+                <td style="font-size:10pt; font-weight:bold; color:#e65100; writing-mode:vertical-lr; transform:rotate(180deg); text-align:center; height:45px;">5 cm</td>
+                <td style="border:2.5px solid #2e7d32; width:70px; height:45px; background:#f1f8e9;"></td>
+                <td style="font-size:10pt; font-weight:bold; color:#e65100; writing-mode:vertical-lr; text-align:center; height:45px;">5 cm</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="text-align:center; font-size:10pt; font-weight:bold; color:#e65100; padding:2px 0 0 0;">8 cm</td>
+                <td></td>
+              </tr>
+            </table>
+            <div style="margin-top:5px; font-size:10.5pt;">P = <span class="gap gap-s"></span> + <span class="gap gap-s"></span> + <span class="gap gap-s"></span> + <span class="gap gap-s"></span> = <span class="gap"></span></div>
+          </td>
+          <!-- Quadrado -->
+          <td style="vertical-align:top; padding-right:30px; text-align:center">
+            <div style="font-size:9.5pt; color:#555; margin-bottom:3px;">b) Quadrado</div>
+            <table style="border-collapse:collapse; margin:0 auto;">
+              <tr>
+                <td style="width:18px"></td>
+                <td style="text-align:center; font-size:10pt; font-weight:bold; color:#e65100; padding:0 0 2px 0; width:55px">7 cm</td>
+                <td style="width:18px"></td>
+              </tr>
+              <tr>
+                <td style="font-size:10pt; font-weight:bold; color:#e65100; writing-mode:vertical-lr; transform:rotate(180deg); text-align:center; height:55px;">7 cm</td>
+                <td style="border:2.5px solid #2e7d32; width:55px; height:55px; background:#f1f8e9;"></td>
+                <td style="font-size:10pt; font-weight:bold; color:#e65100; writing-mode:vertical-lr; text-align:center;">7 cm</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="text-align:center; font-size:10pt; font-weight:bold; color:#e65100; padding:2px 0 0 0;">7 cm</td>
+                <td></td>
+              </tr>
+            </table>
+            <div style="margin-top:5px; font-size:10.5pt;">P = 4 × <span class="gap gap-s"></span> = <span class="gap"></span></div>
+          </td>
+          <!-- Triângulo -->
+          <td style="vertical-align:top; text-align:center">
+            <div style="font-size:9.5pt; color:#555; margin-bottom:3px;">c) Triângulo</div>
+            <svg width="100" height="80" style="display:block; margin: 0 auto;">
+              <polygon points="50,5 5,75 95,75" fill="#f1f8e9" stroke="#2e7d32" stroke-width="2.5"/>
+              <text x="48" y="50" font-size="9.5" fill="#e65100" font-weight="bold" text-anchor="middle">6 cm</text>
+              <text x="20" y="80" font-size="9.5" fill="#e65100" font-weight="bold">4 cm</text>
+              <text x="65" y="80" font-size="9.5" fill="#e65100" font-weight="bold">5 cm</text>
+            </svg>
+            <div style="margin-top:3px; font-size:10.5pt;">P = <span class="gap gap-s"></span> + <span class="gap gap-s"></span> + <span class="gap gap-s"></span> = <span class="gap"></span></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q7 – Área -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">7</span>
+        <span class="q-txt">Calcula a área de cada figura. Apresenta o cálculo e a resposta em cm².</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+
+      <table class="calc-grid" style="margin-left:31px">
+        <tr>
+          <!-- Retângulo -->
+          <td style="vertical-align:top; padding-right:28px; text-align:center">
+            <div style="font-size:9.5pt; color:#555; margin-bottom:3px;">a) Retângulo: 6 cm × 4 cm</div>
+            <table style="border-collapse:collapse; margin:0 auto;">
+              <tr>
+                <td style="width:14px"></td>
+                <td style="text-align:center; font-size:10pt; font-weight:bold; color:#e65100; padding:0 0 2px 0; width:72px">6 cm</td>
+                <td style="width:14px"></td>
+              </tr>
+              <tr>
+                <td style="font-size:10pt; font-weight:bold; color:#e65100; writing-mode:vertical-lr; transform:rotate(180deg); text-align:center; height:48px;">4 cm</td>
+                <td style="border:2.5px solid #2e7d32; width:72px; height:48px; background:#e8f5e9;"></td>
+                <td></td>
+              </tr>
+            </table>
+            <div style="margin-top:5px; font-size:10.5pt;">A = <span class="gap gap-s"></span> × <span class="gap gap-s"></span> = <span class="gap"></span> cm²</div>
+          </td>
+          <!-- Quadrado -->
+          <td style="vertical-align:top; padding-right:28px; text-align:center">
+            <div style="font-size:9.5pt; color:#555; margin-bottom:3px;">b) Quadrado: lado = 5 cm</div>
+            <table style="border-collapse:collapse; margin:0 auto;">
+              <tr>
+                <td style="width:14px"></td>
+                <td style="text-align:center; font-size:10pt; font-weight:bold; color:#e65100; padding:0 0 2px 0; width:60px">5 cm</td>
+                <td style="width:14px"></td>
+              </tr>
+              <tr>
+                <td style="font-size:10pt; font-weight:bold; color:#e65100; writing-mode:vertical-lr; transform:rotate(180deg); text-align:center; height:60px;">5 cm</td>
+                <td style="border:2.5px solid #2e7d32; width:60px; height:60px; background:#e8f5e9;"></td>
+                <td></td>
+              </tr>
+            </table>
+            <div style="margin-top:5px; font-size:10.5pt;">A = <span class="gap gap-s"></span> × <span class="gap gap-s"></span> = <span class="gap"></span> cm²</div>
+          </td>
+          <!-- Contagem de quadrados -->
+          <td style="vertical-align:top; text-align:center">
+            <div style="font-size:9.5pt; color:#555; margin-bottom:3px;">c) Conta os quadrados (cada quadrado = 1 cm²)</div>
+            <table class="qgrid" style="margin:0 auto;">
+              <tr>
+                <td></td><td></td><td class="filled2"></td><td class="filled2"></td><td class="filled2"></td>
+              </tr>
+              <tr>
+                <td></td><td class="filled2"></td><td class="filled2"></td><td class="filled2"></td><td class="filled2"></td>
+              </tr>
+              <tr>
+                <td class="filled2"></td><td class="filled2"></td><td class="filled2"></td><td class="filled2"></td><td></td>
+              </tr>
+              <tr>
+                <td class="filled2"></td><td class="filled2"></td><td class="filled2"></td><td></td><td></td>
+              </tr>
+            </table>
+            <div style="margin-top:5px; font-size:10.5pt;">A = <span class="gap"></span> cm²</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q8 – Simetria e rotação -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">8</span>
+        <span class="q-txt">Simetria e rotação.</span>
+        <span class="q-pts">(6 pts)</span>
+      </div>
+
+      <p class="sub" data-l="a">Completa a figura de modo a que o eixo de simetria (linha a laranja) seja um eixo de simetria. Pinta as células simétricas.</p>
+      <div style="margin: 6px 0 8px 31px;">
+        <table class="qgrid">
+          <!-- Row 1 -->
+          <tr>
+            <td></td><td></td><td class="filled"></td><td class="filled axis-col"></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <!-- Row 2 -->
+          <tr>
+            <td></td><td class="filled"></td><td class="filled"></td><td class="axis-col"></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <!-- Row 3 -->
+          <tr>
+            <td class="filled"></td><td class="filled"></td><td></td><td class="axis-col"></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <!-- Row 4 -->
+          <tr>
+            <td></td><td class="filled"></td><td class="filled"></td><td class="axis-col"></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <!-- Row 5 -->
+          <tr>
+            <td></td><td></td><td class="filled"></td><td class="filled axis-col"></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <!-- Row 6 -->
+          <tr>
+            <td class="filled"></td><td></td><td class="filled"></td><td class="axis-col"></td><td></td><td></td><td></td><td></td>
+          </tr>
+        </table>
+        <div style="font-size:9.5pt; color:#888; margin-top:3px; font-style:italic;">▶ O eixo de simetria é a linha laranja (entre as colunas 4 e 5)</div>
+      </div>
+
+      <p class="sub" data-l="b">Rodeia com ✓ as figuras que têm pelo menos um eixo de simetria e com ✗ as que não têm.</p>
+      <table class="calc-grid" style="margin-left:31px">
+        <tr>
+          <td style="text-align:center; padding: 4px 14px;">
+            <svg width="50" height="50"><rect x="5" y="5" width="40" height="40" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/></svg>
+            <div style="font-size:10pt;">quadrado</div>
+            <div style="font-size:12pt; border:1.5px solid #1565c0; border-radius:4px; padding:1px 8px; margin-top:2px; display:inline-block; min-width:30px; min-height:18px;"></div>
+          </td>
+          <td style="text-align:center; padding: 4px 14px;">
+            <svg width="60" height="50"><polygon points="30,5 55,45 5,45" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/></svg>
+            <div style="font-size:10pt;">triângulo equilátero</div>
+            <div style="font-size:12pt; border:1.5px solid #1565c0; border-radius:4px; padding:1px 8px; margin-top:2px; display:inline-block; min-width:30px; min-height:18px;"></div>
+          </td>
+          <td style="text-align:center; padding: 4px 14px;">
+            <svg width="60" height="45"><polygon points="0,40 25,5 60,25 35,40" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/></svg>
+            <div style="font-size:10pt;">quadrilátero irregular</div>
+            <div style="font-size:12pt; border:1.5px solid #1565c0; border-radius:4px; padding:1px 8px; margin-top:2px; display:inline-block; min-width:30px; min-height:18px;"></div>
+          </td>
+          <td style="text-align:center; padding: 4px 14px;">
+            <svg width="60" height="50"><ellipse cx="30" cy="25" rx="28" ry="22" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/></svg>
+            <div style="font-size:10pt;">elipse</div>
+            <div style="font-size:12pt; border:1.5px solid #1565c0; border-radius:4px; padding:1px 8px; margin-top:2px; display:inline-block; min-width:30px; min-height:18px;"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Q9 – Ângulos -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n3">9</span>
+        <span class="q-txt">Ângulos.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+
+      <p class="sub" data-l="a">Observa o ângulo e responde às perguntas.</p>
+      <table class="calc-grid" style="margin-left:31px">
+        <tr>
+          <td style="vertical-align:top; padding-right:20px;">
+            <svg width="160" height="110">
+              <!-- Rays from vertex O -->
+              <line x1="80" y1="90" x2="20" y2="15" stroke="#1565c0" stroke-width="2.5"/>
+              <line x1="80" y1="90" x2="140" y2="15" stroke="#1565c0" stroke-width="2.5"/>
+              <!-- Arrows -->
+              <polygon points="20,15 25,28 14,25" fill="#1565c0"/>
+              <polygon points="140,15 135,28 146,25" fill="#1565c0"/>
+              <!-- Vertex dot -->
+              <circle cx="80" cy="90" r="4" fill="#e65100"/>
+              <!-- Arc -->
+              <path d="M 60,75 Q 80,55 100,75" fill="none" stroke="#e65100" stroke-width="1.5" stroke-dasharray="4,2"/>
+              <!-- Labels -->
+              <text x="12" y="12" font-size="13" fill="#2e7d32" font-weight="bold">A</text>
+              <text x="138" y="12" font-size="13" fill="#2e7d32" font-weight="bold">B</text>
+              <text x="85" y="105" font-size="13" fill="#e65100" font-weight="bold">O</text>
+            </svg>
+          </td>
+          <td style="vertical-align:middle; font-size:11pt; line-height:2.2;">
+            O vértice do ângulo é o ponto: <span class="gap gap-s"></span><br>
+            Os lados do ângulo são as semiretas: <span class="gap gap-s"></span> e <span class="gap gap-s"></span><br>
+            Este ângulo chama-se: ângulo <span class="gap"></span>
+          </td>
+        </tr>
+      </table>
+
+      <p class="sub" data-l="b">Classifica cada ângulo como: <strong>agudo</strong> (menos de 90°), <strong>reto</strong> (= 90°), <strong>obtuso</strong> (entre 90° e 180°) ou <strong>raso</strong> (= 180°).</p>
+      <table class="calc-grid" style="margin-left:31px">
+        <tr>
+          <!-- Agudo ~50° -->
+          <td style="text-align:center; padding:4px 14px;">
+            <svg width="80" height="80">
+              <line x1="40" y1="72" x2="10" y2="15" stroke="#1565c0" stroke-width="2.5"/>
+              <line x1="40" y1="72" x2="65" y2="15" stroke="#1565c0" stroke-width="2.5"/>
+              <circle cx="40" cy="72" r="3" fill="#e65100"/>
+              <path d="M 28,58 Q 40,46 52,58" fill="none" stroke="#e65100" stroke-width="1.5"/>
+            </svg>
+            <div style="border:1.5px solid #2e7d32; border-radius:4px; padding:2px 8px; font-size:10.5pt; min-height:18px; margin-top:2px;"></div>
+          </td>
+          <!-- Reto 90° -->
+          <td style="text-align:center; padding:4px 14px;">
+            <svg width="80" height="80">
+              <line x1="15" y1="70" x2="15" y2="15" stroke="#1565c0" stroke-width="2.5"/>
+              <line x1="15" y1="70" x2="70" y2="70" stroke="#1565c0" stroke-width="2.5"/>
+              <rect x="15" y="55" width="14" height="14" fill="none" stroke="#e65100" stroke-width="1.5"/>
+              <circle cx="15" cy="70" r="3" fill="#e65100"/>
+            </svg>
+            <div style="border:1.5px solid #2e7d32; border-radius:4px; padding:2px 8px; font-size:10.5pt; min-height:18px; margin-top:2px;"></div>
+          </td>
+          <!-- Obtuso ~120° -->
+          <td style="text-align:center; padding:4px 14px;">
+            <svg width="80" height="80">
+              <line x1="40" y1="70" x2="8" y2="20" stroke="#1565c0" stroke-width="2.5"/>
+              <line x1="40" y1="70" x2="72" y2="20" stroke="#1565c0" stroke-width="2.5"/>
+              <circle cx="40" cy="70" r="3" fill="#e65100"/>
+              <path d="M 22,52 Q 40,32 58,52" fill="none" stroke="#e65100" stroke-width="1.5"/>
+            </svg>
+            <div style="border:1.5px solid #2e7d32; border-radius:4px; padding:2px 8px; font-size:10.5pt; min-height:18px; margin-top:2px;"></div>
+          </td>
+          <!-- Raso 180° -->
+          <td style="text-align:center; padding:4px 14px;">
+            <svg width="80" height="80">
+              <line x1="8" y1="45" x2="72" y2="45" stroke="#1565c0" stroke-width="2.5"/>
+              <circle cx="40" cy="45" r="3" fill="#e65100"/>
+              <path d="M 25,45 A 15,15 0 0,1 55,45" fill="none" stroke="#e65100" stroke-width="1.5"/>
+            </svg>
+            <div style="border:1.5px solid #2e7d32; border-radius:4px; padding:2px 8px; font-size:10.5pt; min-height:18px; margin-top:2px;"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     GRUPO IV — DADOS, PROBABILIDADES E PROBLEMAS
+══════════════════════════════════════════════════ -->
+<div class="grupo pb">
+  <div class="grupo-titulo g4">
+    <span>Grupo IV &nbsp;—&nbsp; Dados, Probabilidades e Resolução de Problemas</span>
+    <span class="pts-badge">30 pontos</span>
+  </div>
+  <div class="grupo-corpo bc4">
+
+    <!-- Q10 – Gráfico de barras -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n4">10</span>
+        <span class="q-txt">Observa o gráfico de barras sobre os passatempos preferidos dos alunos do 3.º B e responde às perguntas.</span>
+        <span class="q-pts">(10 pts)</span>
+      </div>
+
+      <div style="margin: 6px 0 6px 31px;">
+        <div style="font-size:10.5pt; font-weight:bold; color:#e65100; margin-bottom:6px; text-align:center;">Passatempos preferidos da turma do 3.º B</div>
+
+        <!-- Escala -->
+        <div style="display:flex; margin-bottom:2px; margin-left:86px;">
+          <div style="width:100px; font-size:8.5pt; color:#888; border-left:1px solid #aaa; padding-left:2px;">0</div>
+          <div style="width:100px; font-size:8.5pt; color:#888; border-left:1px solid #aaa; padding-left:2px;">5</div>
+          <div style="width:60px; font-size:8.5pt; color:#888; border-left:1px solid #aaa; padding-left:2px;">10</div>
+        </div>
+
+        <div class="barchart">
+          <div class="bar-row">
+            <div class="bar-lbl">📖 Ler</div>
+            <div class="bar-track"><div class="bar-fill" style="width:120px; background:#1565c0;"></div></div>
+            <div class="bar-val">6</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">🎮 Jogar</div>
+            <div class="bar-track"><div class="bar-fill" style="width:200px; background:#6a1b9a;"></div></div>
+            <div class="bar-val">10</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">⚽ Desporto</div>
+            <div class="bar-track"><div class="bar-fill" style="width:160px; background:#2e7d32;"></div></div>
+            <div class="bar-val">8</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">🎨 Desenhar</div>
+            <div class="bar-track"><div class="bar-fill" style="width:80px; background:#c62828;"></div></div>
+            <div class="bar-val">4</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">🎵 Música</div>
+            <div class="bar-track"><div class="bar-fill" style="width:140px; background:#e65100;"></div></div>
+            <div class="bar-val">7</div>
+          </div>
+        </div>
+        <div style="font-size:9pt; color:#888; margin-left:86px; font-style:italic;">Cada unidade = 1 aluno</div>
+      </div>
+
+      <table class="gtab" style="margin-left:31px; width:calc(100% - 31px)">
+        <tr><th class="th4" style="text-align:left">Pergunta</th><th class="th4" style="width:45%">Resposta (apresenta o cálculo)</th></tr>
+        <tr><td>a) Qual o passatempo preferido por mais alunos?</td><td class="f"></td></tr>
+        <tr><td>b) Quantos alunos preferem Ler ou Música?</td><td class="f"></td></tr>
+        <tr><td>c) Quantos alunos a mais preferem Jogar do que Desenhar?</td><td class="f"></td></tr>
+        <tr><td>d) Quantos alunos foram inquiridos ao todo?</td><td class="f"></td></tr>
+        <tr><td>e) Que passatempo é preferido por menos alunos?</td><td class="f"></td></tr>
+      </table>
+    </div>
+
+    <!-- Q11 – Probabilidade -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n4">11</span>
+        <span class="q-txt">Classifica cada evento como <strong>Impossível</strong>, <strong>Possível</strong> ou <strong>Certo</strong>.</span>
+        <span class="q-pts">(8 pts)</span>
+      </div>
+      <table class="gtab" style="margin-left:31px; width:calc(100% - 31px)">
+        <tr><th class="th4" style="text-align:left">Evento</th><th class="th4">Classificação</th></tr>
+        <tr><td>a) Amanhã vai chover em Portugal.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>b) Ao lançar um dado (faces 1–6), sai o número 9.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>c) Ao lançar uma moeda, sai cara ou coroa.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>d) Num saco com apenas bolas azuis, tirar uma bola verde.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>e) O sol vai nascer amanhã.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>f) Num saco com 4 bolas azuis e 2 vermelhas, tirar uma bola azul.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>g) Uma pessoa que nunca estudou tira 20 valores no teste.</td><td class="f" style="text-align:center"></td></tr>
+        <tr><td>h) Ao lançar um dado (faces 1–6), sair um número menor que 7.</td><td class="f" style="text-align:center"></td></tr>
+      </table>
+    </div>
+
+    <!-- Q12 – Resolução de Problemas -->
+    <div class="q">
+      <div class="q-row">
+        <span class="q-num n4">12</span>
+        <span class="q-txt">Resolve os problemas. Apresenta os cálculos e escreve a resposta completa.</span>
+        <span class="q-pts">(12 pts)</span>
+      </div>
+
+      <div class="prob-enunc">
+        <strong>Problema A:</strong> A professora comprou 6 caixas de lápis de cor. Cada caixa tem 12 lápis. Ela distribuiu
+        <span class="fr"><span class="n">1</span><span class="d">4</span></span>
+        dos lápis pela turma do 3.º A. Quantos lápis ficaram para a turma do 3.º B?
+      </div>
+      <div class="prob-oper">Operações:</div>
+      <div class="alines"><div class="al"></div><div class="al"></div></div>
+      <div class="prob-oper">Resposta:</div>
+      <div class="alines"><div class="al"></div></div>
+
+      <div class="prob-enunc" style="margin-top:8px">
+        <strong>Problema B:</strong> Uma quinta tem 8 cercados. Em cada cercado há 9 ovelhas. O agricultor vendeu
+        <span class="fr"><span class="n">1</span><span class="d">3</span></span>
+        das ovelhas. Quantas ovelhas ficaram na quinta?
+      </div>
+      <div class="prob-oper">Operações:</div>
+      <div class="alines"><div class="al"></div><div class="al"></div></div>
+      <div class="prob-oper">Resposta:</div>
+      <div class="alines"><div class="al"></div></div>
+
+      <div class="prob-enunc" style="margin-top:8px">
+        <strong>Problema C:</strong> O João tinha 96 cromos. Partilhou-os em partes iguais pelos seus 8 amigos.
+        Depois cada amigo deu 3 cromos ao João. Com quantos cromos ficou o João no final?
+      </div>
+      <div class="prob-oper">Operações:</div>
+      <div class="alines"><div class="al"></div><div class="al"></div><div class="al"></div></div>
+      <div class="prob-oper">Resposta:</div>
+      <div class="alines"><div class="al"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════ GRELHA DE CLASSIFICAÇÃO ══════ -->
+<div class="grupo">
+  <div class="grupo-titulo" style="background:#37474f">
+    <span>Grelha de Classificação &nbsp;—&nbsp; Uso exclusivo do(a) Professor(a)</span>
+    <span class="pts-badge"></span>
+  </div>
+  <div class="grupo-corpo" style="border:2px solid #37474f">
+    <table class="score-table">
+      <tr>
+        <th>Grupo / Domínio</th>
+        <th>Conteúdos avaliados</th>
+        <th style="width:90px">Cot. máx.</th>
+        <th style="width:90px">Cot. obtida</th>
+      </tr>
+      <tr>
+        <td>Grupo I — Frações</td>
+        <td>Frações equivalentes, soma e subtração de frações</td>
+        <td style="text-align:center">20</td><td class="f"></td>
+      </tr>
+      <tr>
+        <td>Grupo II — Multiplicação e Divisão</td>
+        <td>Multiplicação de 2 dígitos × 1 dígito, divisão</td>
+        <td style="text-align:center">20</td><td class="f"></td>
+      </tr>
+      <tr>
+        <td>Grupo III — Geometria</td>
+        <td>Perímetro, área, simetria e rotação, partes e classificação de ângulos</td>
+        <td style="text-align:center">30</td><td class="f"></td>
+      </tr>
+      <tr>
+        <td>Grupo IV — Dados, Probabilidades e Problemas</td>
+        <td>Leitura de gráfico, probabilidade, resolução de problemas</td>
+        <td style="text-align:center">30</td><td class="f"></td>
+      </tr>
+      <tr style="font-weight:bold">
+        <td colspan="2">TOTAL</td>
+        <td style="text-align:center">100</td><td class="f"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <div>Ficha de Avaliação — Matemática — 3.º Ano — 2025/2026</div>
+  <div class="sig"><div class="sigline"></div><div>Assinatura do(a) Encarregado(a) de Educação</div></div>
+  <div>Total: 100 pontos</div>
+</div>
+
+</body>
+</html>
